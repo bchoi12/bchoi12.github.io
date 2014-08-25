@@ -1,0 +1,272 @@
+html, body {
+	background-color: #111;
+	font-size: 18px;
+}
+
+#top-container {
+	background-color: #444;
+	border: 1px solid transparent;
+	height: 30px;
+	
+	min-width: 420px;
+	
+	color: #ccc;
+	text-align: center;
+}
+
+#header-container {
+	background-color: #111;
+	
+	border: 1px solid transparent;
+	
+	min-width: 420px;
+}
+
+#content-container {
+	background-color: #ebebeb;
+
+	background: -webkit-linear-gradient(top, #e4e4e4, #f4f4f4);
+	background: -o-linear-gradient(top, #e4e4e4, #f4f4f4);
+	background: -moz-linear-gradient(top, #e4e4e4, #f4f4f4);
+	background: linear-gradient(to bottom, #e4e4e4, #f4f4f4);
+	
+	border: 1px solid transparent;
+	
+	min-width: 420px;
+}
+
+#footer-container {
+	min-height: 50px;
+	background-color: #111;
+	border: 1px solid transparent;
+	border-top: 8px solid #cd3a3a;
+	
+	min-width: 420px;
+}
+
+#top {
+	padding: 3px 0;
+	overflow: hidden;
+}
+
+#header {
+	overflow: hidden;
+}
+
+#content {
+	background-color: #f9f9f9;
+	
+	border: 1px solid transparent;
+	box-shadow: 0px 0px 3px #888;
+	
+	min-height: 100%;
+}
+
+#footer {
+	font-family: 'Lato', sans-serif;
+	color: #f4f4f4;
+}
+
+#top #slider-container {
+	display: none;
+}
+
+#top #top-left {
+	float: left;
+	margin-left: 1%;
+}
+
+#top #top-right {
+	float: right;
+	margin-right: 1%;
+}
+
+#top #home, #top #search {
+	width: 24px;
+	height: 24px;
+	opacity: 0.7;
+
+	-webkit-transition: opacity .4s ease-in-out;
+	-moz-transition: opacity .4s ease-in-out;
+	-ms-transition: opacity .4s ease-in-out;
+	-o-transition: opacity .4s ease-in-out;
+        transition: opacity .4s ease-in-out;
+}
+
+#top #home:hover, #top #search:hover {
+	opacity: 1;
+}
+
+#nav-container {
+	background-color: #de3a3a;
+	
+	border-top: 1px solid transparent;
+	border-bottom: 4px solid #941818;
+	
+	font-family: 'Helvetica', sans-serif;
+}
+
+#nav-bar {
+	z-index: 1
+}
+
+#nav-bar .nav-right {
+	float: right;
+}
+
+#nav-bar ul {
+	margin: 0;
+	padding: 0;
+}
+
+#nav-bar ul li{
+	display: inline-block;
+	list-style-type: none;
+	
+	min-width: 15%;
+	max-width: 25%;
+
+	padding: 4px 10px 6px 10px;
+	
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 1px;
+	text-align: center;
+
+	border-left: 1px solid #c21f1f;
+	position: relative;
+
+	-webkit-transition: background-color .15s ease-in-out;
+	-moz-transition: background-color .15s ease-in-out;
+	-ms-transition: background-color .15s ease-in-out;
+	-o-transition: background-color .15s ease-in-out;
+        transition: background-color .15s ease-in-out;
+}
+
+#nav-bar .nav-right li {
+	max-width: none;
+}
+
+#nav-bar ul li:hover {
+	background-color: #fd4b4b;
+}
+
+#nav-bar ul .active:hover:after {
+	border-top-color: #fd4b4b;
+}
+
+#nav-bar ul .active:after, #nav-bar ul .active:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+#nav-bar ul .active:after {
+	border-color: transparent;
+	border-top-color: #de3a3a;
+	border-width: 10px;
+	margin-left: -10px;
+	margin-top: 0px;
+	
+	-webkit-transition: border-top-color .15s ease-in-out;
+	-moz-transition: border-top-color .15s ease-in-out;
+	-ms-transition: border-top-color .15s ease-in-out;
+	-o-transition: border-top-color .15s ease-in-out;
+        transition: border-top-color .15s ease-in-out;
+}
+
+#nav-bar ul .active:before  {
+	border-color: transparent;
+	border-top-color: #941818;
+	border-width: 13px;
+	margin-left: -13px;
+	margin-top: 4px;
+}
+
+#nav-bar ul a:last-child li{
+	border-right: 1px solid #c21f1f;
+}
+
+#nav-bar ul a {
+	text-decoration: none;
+	color: #eee;
+}
+
+#header #title {
+	text-transform: lowercase;
+	font-family: 'Lato', sans-serif;
+	font-size: 144px;
+	height: 0.9em;
+	
+	color: #fff;
+	margin-left: 10%;
+}
+
+#content .entry {
+	width: 90%;
+	margin: 0 auto;
+}
+
+#content .entry .stuff {
+	margin: 5px 12px;
+}
+
+#content .entry p {
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+#content .title, #content .title-no-author {
+	font-family: 'Lato', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 2.5rem;
+	
+	border-bottom: 1px solid #aaa;
+}
+
+#content .title {
+	margin-bottom: 0px;
+}
+
+#content .author {
+	font-family: 'Lato', sans-serif;
+	font-size: 0.75rem;
+	
+	margin-left: 5px;
+}
+
+#footer #hit-counter {
+	text-align: right;
+	margin-right: 3%;
+	text-transform: lowercase;
+}
+
+.center {
+	min-width: 420px;
+	max-width: 1080px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+.link {
+}
+
+.link:hover {
+	cursor: pointer;
+}
+
+.clear {
+	height: 1px;
+	clear: both;
+}
+
+.spacer {
+	height: 10px;
+	clear: both;
+}

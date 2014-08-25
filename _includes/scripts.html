@@ -1,0 +1,36 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+var contentHeight;
+
+$(document).ready(function() {
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		// nothing so far
+	} else {
+		$('#top-container').css({'width': '100%', 'position': 'fixed', 'z-index': '999', 'box-shadow': '0 1px 2px #444'});
+		$('#header-container').css('margin-top', '20px');
+		$('#slider-container').css('display', 'inline');
+	}
+});
+
+$(window).load(function() {
+	resizeContent(true);
+});
+
+$(window).on('resize', function() {
+	resizeContent(false);
+});
+
+$('#font-slider').on('change', function() {
+	$('html').css('font-size', $('#font-slider').val() + 'px');
+	resizeContent(true);
+});
+
+function resizeContent(reset) {
+	if (reset) {
+		$('#content').css('height', 'auto');
+		contentHeight = $('#content').outerHeight();
+	}
+	$('#content').css('height', (Math.max($(window).height() - $('#header-container').outerHeight() - $('#top-container').outerHeight() - $('#footer-container').outerHeight(), contentHeight)) + 'px');
+}
+
+</script>
