@@ -14,17 +14,7 @@ $(document).ready(function() {
 
 $('#font-slider').on('change', function() {
 	$('html').css('font-size', $('#font-slider').val() + 'px');
-	resizeContent(true);
 });
-
-function resizeContent(reset) {
-	if (reset) {
-		$('#content').css('height', 'auto');
-		contentHeight = $('#content').outerHeight();
-	}
-	$('#content').css('height', (Math.max($(window).height() - $('#header-container').outerHeight() - $('#top-container').outerHeight() - $('#footer-container').outerHeight(), contentHeight)) + 'px');
-}
-
 </script>
 
   <script type="text/javascript">
