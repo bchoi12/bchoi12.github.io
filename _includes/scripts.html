@@ -34,7 +34,7 @@ function resizeContent(reset) {
 }
 
 function resizeDisqus() {
-	if $('#disqus_thread').html() == '') {
+	if ($('#disqus_thread').html() === '') {
 		setInterval(resizeDisqus(), 100);
 	} else {
 		resizeContent(true);
