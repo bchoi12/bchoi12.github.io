@@ -12,14 +12,6 @@ $(document).ready(function() {
 	}
 });
 
-$(window).load(function() {
-	resizeContent(true);
-});
-
-$(window).on('resize', function() {
-	resizeDisqus();
-});
-
 $('#font-slider').on('change', function() {
 	$('html').css('font-size', $('#font-slider').val() + 'px');
 	resizeContent(true);
@@ -31,14 +23,6 @@ function resizeContent(reset) {
 		contentHeight = $('#content').outerHeight();
 	}
 	$('#content').css('height', (Math.max($(window).height() - $('#header-container').outerHeight() - $('#top-container').outerHeight() - $('#footer-container').outerHeight(), contentHeight)) + 'px');
-}
-
-function resizeDisqus() {
-	if ($('#disqus_thread').html() === '') {
-		setInterval(resizeDisqus(), 100);
-	} else {
-		resizeContent(true);
-	}
 }
 
 </script>
