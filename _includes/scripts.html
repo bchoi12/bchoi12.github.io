@@ -17,7 +17,7 @@ $(window).load(function() {
 });
 
 $(window).on('resize', function() {
-	resizeContent(false);
+	resizeDisqus();
 });
 
 $('#font-slider').on('change', function() {
@@ -33,6 +33,14 @@ function resizeContent(reset) {
 	$('#content').css('height', (Math.max($(window).height() - $('#header-container').outerHeight() - $('#top-container').outerHeight() - $('#footer-container').outerHeight(), contentHeight)) + 'px');
 }
 
+function resizeDisqus() {
+	if $('#disqus_thread').html() == '') {
+		setInterval(resizeDisqus(), 100);
+	} else {
+		resizeContent(true);
+	}
+}
+
 </script>
 
   <script type="text/javascript">
@@ -45,6 +53,5 @@ function resizeContent(reset) {
         s.type = 'text/javascript';
         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        resizeContent(true);
     }());
     </script>
