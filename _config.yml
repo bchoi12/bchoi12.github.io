@@ -9,7 +9,7 @@ permalink:        pretty
 title:            Brian Choi
 tagline:          The Blog
 url:              blog.brianchoi.net
-paginate:         1
+paginate:         3
 baseurl:          /
 author:
   name:           Brian Choi
