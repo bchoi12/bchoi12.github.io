@@ -254,7 +254,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
-  padding-top:    1rem;
+  padding-top:    2rem;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
@@ -354,6 +354,8 @@ tbody tr:nth-child(odd) th {
   display: block;
   padding: 1rem;
   border: 1px solid #eee;
+  
+  font-size: 1rem;
 
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
