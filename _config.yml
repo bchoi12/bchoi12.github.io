@@ -10,7 +10,7 @@ title:            Brian Choi
 tagline:          The Blog
 url:              blog.brianchoi.net
 paginate:         3
-baseurl:          http://blog.brianchoi.net
+baseurl:          http://blog.brianchoi.net/
 author:
   name:           Brian Choi
   url:            https://twitter.com/bchoi12
