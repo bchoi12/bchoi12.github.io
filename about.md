@@ -1,9 +1,7 @@
 ---
 layout: pagenocomments
-title: About
+title: Where did the Past Go?
 ---
-
-## Where did the Past Go?
 
 Hey! I'm not sure how you stumbled upon this page, but I hope you enjoy this blog. 
 
@@ -11,4 +9,4 @@ I'm currently in my third year at college. And although I've been in academia fo
 
 This blog's purpose is to capture some glimpses of the college life. Hopefully it'll be exciting.
 
-By the way, if you did stumble on this page please send me an email using the contact page!
+<small>By the way, if you did stumble on this page please send me an email using the contact page!</small>
