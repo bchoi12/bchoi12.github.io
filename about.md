@@ -9,4 +9,8 @@ I'm currently in my third year at college. And although I've been in academia fo
 
 This blog's purpose is to capture some glimpses of the college life. Hopefully it'll be exciting.
 
+
+
+
+
 <small>By the way, if you did stumble on this page please send me an email using the contact page!</small>
