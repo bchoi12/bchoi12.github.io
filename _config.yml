@@ -22,3 +22,4 @@ github:
   repo:           https://github.com/poole/poole
 pages_list:
   Archives:	  '/archives'
+  About:	  '/about'

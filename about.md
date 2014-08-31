@@ -1,30 +1,14 @@
 ---
-layout: page
+layout: pagenocomments
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+## Where did the Past Go?
 
-In the novel, *The Strange Case of Dr. Jekyll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Hey! I'm not sure how you stumbled upon this page, but I hope you enjoy this blog. 
 
-There are currently two themes built on Poole:
+I'm currently in my third year at college. And although I've been in academia for over two years now, it still feels like it was only yesterday when I was a naïve freshman, getting hopelessly lost around campus, experiencing all sorts of new things and being really excited about the future. Two years later I still occassionally get lost and I still experience cool new things, but I'm no longer as ambitious about the future. Part of me never wants to graduate--I never want to have to leave academia where all I do is learn, where everyday is something new and where self-improvement is my only worry in life.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+This blog's purpose is to capture some glimpses of the college life. Hopefully it'll be exciting.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+By the way, if you did stumble on this page please send me an email using the contact page!
