@@ -12,7 +12,29 @@ $(document).ready(function() {
 	}
 });
 
-$('#font-slider').on('change', function() {
+$(window).load(function() {
+	$('#font-slider').val( parseInt(cookie('font-size')) );
 	$('html').css('font-size', $('#font-slider').val() + 'px');
 });
+
+$('#font-slider').on('change', function() {
+	$('html').css('font-size', $('#font-slider').val() + 'px');
+	document.cookie = 'font-size=' + $('#font-slider').val() + ';';
+});
+
+function cookie(thing) {
+	var crumbs = document.cookie.split(';');
+	for(var i=0; i<crumbs.length; i++) {
+		var split = crumbs[i].split('=');
+		if (split.length != 2) {
+			continue;
+		}
+
+		split[0] = split[0].trim();
+
+		if (split[0] == thing) {
+			return split[1];
+		}
+	}
+}
 </script>

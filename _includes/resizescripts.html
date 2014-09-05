@@ -9,10 +9,13 @@ $(document).ready(function() {
 		$('#top-container').css({'width': '100%', 'position': 'fixed', 'z-index': '999', 'box-shadow': '0 1px 2px #444'});
 		$('#header-container').css('margin-top', '20px');
 		$('#slider-container').css('display', 'inline');
+		$('#header #title').css('position', 'fixed');
 	}
 });
 
 $(window).load(function() {
+	$('#font-slider').val( parseInt(cookie('font-size')) );
+	$('html').css('font-size', $('#font-slider').val() + 'px');
 	resizeContent(true);
 });
 
@@ -22,6 +25,7 @@ $(window).on('resize', function() {
 
 $('#font-slider').on('change', function() {
 	$('html').css('font-size', $('#font-slider').val() + 'px');
+	document.cookie = 'font-size=' + $('#font-slider').val() + ';';
 	resizeContent(true);
 });
 
@@ -32,4 +36,21 @@ function resizeContent(reset) {
 	}
 	$('#content').css('height', (Math.max($(window).height() - $('#header-container').outerHeight() - $('#top-container').outerHeight() - $('#footer-container').outerHeight(), contentHeight)) + 'px');
 }
+
+function cookie(thing) {
+	var crumbs = document.cookie.split(';');
+	for(var i=0; i<crumbs.length; i++) {
+		var split = crumbs[i].split('=');
+		if (split.length != 2) {
+			continue;
+		}
+
+		split[0] = split[0].trim();
+
+		if (split[0] == thing) {
+			return split[1];
+		}
+	}
+}
 </script>
+
