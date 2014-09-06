@@ -3,6 +3,9 @@
 var contentHeight;
 
 $(document).ready(function() {
+	$('#font-slider').val( parseInt(cookie('font-size')) );
+	$('html').css('font-size', $('#font-slider').val() + 'px');
+
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		// nothing so far
 	} else {
@@ -10,11 +13,6 @@ $(document).ready(function() {
 		$('#header-container').css('margin-top', '20px');
 		$('#slider-container').css('display', 'inline');
 	}
-});
-
-$(window).load(function() {
-	$('#font-slider').val( parseInt(cookie('font-size')) );
-	$('html').css('font-size', $('#font-slider').val() + 'px');
 });
 
 $('#font-slider').on('change', function() {

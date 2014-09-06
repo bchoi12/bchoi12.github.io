@@ -3,6 +3,9 @@
 var contentHeight;
 
 $(document).ready(function() {
+	$('#font-slider').val( parseInt(cookie('font-size')) );
+	$('html').css('font-size', $('#font-slider').val() + 'px');
+
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		// nothing so far
 	} else {
@@ -14,8 +17,6 @@ $(document).ready(function() {
 });
 
 $(window).load(function() {
-	$('#font-slider').val( parseInt(cookie('font-size')) );
-	$('html').css('font-size', $('#font-slider').val() + 'px');
 	resizeContent(true);
 });
 
