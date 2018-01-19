@@ -8,9 +8,9 @@ permalink:        pretty
 # Setup
 title:            Brian Choi
 tagline:          The Blog
-url:              blog.brianchoi.net
+url:              
 paginate:         3
-baseurl:          http://blog.brianchoi.net/
+baseurl:          
 author:
   name:           Brian Choi
   url:            https://twitter.com/bchoi12
