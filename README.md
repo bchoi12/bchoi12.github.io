@@ -1,4 +1,4 @@
 bchoi12.github.io
 =================
 
-Blog
+Development site for hosting personal projects
