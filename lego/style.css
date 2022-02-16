@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'SuperMario256';
+  src: URL('SuperMario256.ttf') format('truetype');
+}
+
+body {
+	background: URL('background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+#container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  z-index: 2;
+
+  transition: opacity 3s linear;
+ }
+
+#enter {
+	font-family: 'SuperMario256';
+	font-size: 72px;
+	padding: 20px;
+
+	border: 4px solid #666666;
+
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#enter:hover {
+	box-shadow: 2px 2px #AAAAAA, -2px 2px #AAAAAA, 2px -2px #AAAAAA, -2px -2px #AAAAAA;
+}
+
+#title {
+	font-family: 'SuperMario256';
+	font-size: 144px;
+	text-shadow: -6px -6px 0 #e4000f, 3px -3px 0 #e4000f, -3px 3px 0 #e4000f, 3px 3px 0 #e4000f;
+	color: white;
+
+	margin-top: 100px;
+}
+
+#toad {
+	position: absolute;
+	right: -1000px;
+	bottom: 10px;
+}
+
+#content {
+	font-family: 'SuperMario256';
+	margin-top: 100px;
+	opacity: 0;
+
+	text-shadow: -6px -6px 0 #e4000f, 3px -3px 0 #e4000f, -3px 3px 0 #e4000f, 3px 3px 0 #e4000f;
+	color: white;
+
+	text-align: center;
+}
+
+#down {
+	font-size: 96px;
+
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#bday {
+	background: URL('mario_background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 40px;
+
+	font-size: 48px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 400px;
+	margin-bottom: 100px;
+	padding: 3%;
+
+	line-height: 130%;
+}
+
+#instructions {
+	color: white;
+	text-decoration: none;
+}
+
+#instructions:hover {
+	text-shadow: -8px -8px 0 #ff2231, 3px -3px 0 #ff2231, -3px 3px 0 #ff2231, 3px 3px 0 #ff2231;
+}
+
+#ps {
+	font-size: 24px;
+	line-height: 0;
+}
