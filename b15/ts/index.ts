@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	main();
 });
 
-const texture = new THREE.TextureLoader().load("1.jpg");
-const material = new THREE.MeshStandardMaterial( {map: texture, color: 0xbb4444 } );
+const pieceSize : number = 3;
 
 var width : number;
 var height : number;
@@ -35,6 +34,7 @@ function resize() {
 	canvasElm.style.height = height + "px";
 
 	camera.aspect = width / height;
+	camera.updateProjectionMatrix();
 
 	controls.update();
 }
@@ -45,11 +45,147 @@ function animate() {
 	requestAnimationFrame(() => { animate(); });
 }
 
+namespace Helper {
+	export function getNumber(row : number, col : number) {
+		return row * 4 + col;
+	}
+
+	export function getPos(row : number, col : number) : THREE.Vector2 {
+		return new THREE.Vector2(3 * col - 1.5 * pieceSize, (2 - row) * 3 - 0.5 * pieceSize);
+	}
+
+	export function valid(row : number, col : number) : boolean {
+		return row >= 0 && col >= 0 && row <= 3 && col <= 3;
+	}
+}
+
+class Board {
+	public scene : THREE.Scene;
+	public url : string;
+	public pieces : Map<number, Piece>;
+
+	constructor(url : string) {
+		this.scene = new THREE.Scene();
+		this.url = url;
+		this.pieces = new Map();
+
+		for (let i = 0; i < 4; ++i) {
+			for (let j = 0; j < 4; ++j) {
+				if (i === 3 && j === 3) {
+					continue;
+				}
+				this.addPiece(i, j);
+			}
+		}
+	}
+
+	addPiece(row : number, col : number) : void {
+		new THREE.TextureLoader().load(this.url, (texture) => {
+			let piece = new Piece(row, col, texture);
+			this.pieces.set(piece.num, piece);
+			this.scene.add(piece.mesh);
+		});
+	}
+
+	moveAll(horizontal : number, vertical : number) : boolean {
+		for (const [cur, piece] of this.pieces.entries()) {
+			const row = piece.row;
+			const col = piece.col;
+
+			if (!Helper.valid(row + vertical, col + horizontal)) {
+				continue;
+			}
+
+			const num = Helper.getNumber(row + vertical, col + horizontal);
+			if (!this.pieces.has(num)) {
+				console.log(num + " " + horizontal + " " + vertical);
+				this.pieces.set(num, this.pieces.get(Number(cur)));
+				this.pieces.delete(Number(cur));
+				this.pieces.get(num).move(row+vertical, col+horizontal);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	move(row : number, col : number) : boolean {
+		const cur = Helper.getNumber(row, col);
+		if (!this.pieces.has(cur)) {
+			return false;
+		}
+
+		for (let i = -1; i <= 1; ++i) {
+			for (let j = -1; j <=1; ++j) {
+				if (i === 0 && j === 0) {
+					continue;
+				}
+				if (!Helper.valid(row+i, col+j)) {
+					continue;
+				}
+
+				const num = Helper.getNumber(row+i, col+j);
+				if (!this.pieces.has(num)) {
+					this.pieces.set(num, this.pieces.get(cur));
+					this.pieces.delete(cur);
+					this.pieces.get(num).move(row+i, col+j);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+}
+
+class Piece {
+	public row : number;
+	public col : number;
+	public num : number;
+	public mesh : THREE.Mesh;
+
+	constructor(row : number, col : number, texture : THREE.Texture) {
+		this.row = row;
+		this.col = col;
+		this.num = Helper.getNumber(row, col);
+
+		let geometry = new THREE.PlaneGeometry(pieceSize, pieceSize);
+		let uvPositions = [];
+		const vertices = geometry.attributes.position.array;
+		for(let i = 0; i < vertices.length / 3; i++) {
+		  let [x, y] = [vertices[3*i], vertices[3*i + 1]];
+
+		  const u = (x + pieceSize/2) / pieceSize;
+		  const v = (y + pieceSize/2) / pieceSize;
+
+		  uvPositions.push(0.25 * u + col/4);
+		  uvPositions.push(0.25 * v + (3 - row)/4);
+		}
+		geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvPositions, 2 ));
+		this.mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial( {map: texture } ));
+		this.move(row, col);
+	}
+
+	move(row : number, col : number) {
+		if (typeof this.mesh === 'undefined') {
+			return;
+		}
+
+		this.row = row;
+		this.col = col;
+		const pos = Helper.getPos(row, col);
+		this.mesh.position.x = pos.x;
+		this.mesh.position.y = pos.y;
+	}
+
+	correct() : boolean {
+		return Helper.getNumber(this.row, this.col) === this.num;
+	}
+}
+
 function main() : void {
 	canvasElm = elm("canvas");
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera(30, canvasElm.offsetWidth / canvasElm.offsetHeight, 0.1, 1000);
-	camera.position.copy(new THREE.Vector3(0, 0, -40));
+	camera.position.copy(new THREE.Vector3(0, 0, 40));
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	renderer = new THREE.WebGLRenderer({canvas: canvasElm, antialias: true});
 	renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -72,7 +208,7 @@ function main() : void {
 	uniforms['sunPosition'].value.copy(sun);
 	scene.add(sky);
 
-	const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x232323, 1.2);
+	const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x565656, 1.2);
 	scene.add(hemisphereLight);
 
 	const sunLight = new THREE.DirectionalLight(0xfdfbfd, 2.0);
@@ -90,7 +226,25 @@ function main() : void {
 	scene.add(sunLight);
 	scene.add(sunLight.target);
 
-	scene.add(new THREE.Mesh(new THREE.SphereGeometry(3, 20, 12), material))
+	scene.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({color: 0xff0000})));
+
+	const board = new Board("https://brianchoi.net/b15/dist/1.jpg");
+	scene.add(board.scene);
+
+	document.addEventListener("keydown", (e) => {
+		if (e.keyCode === 38 || e.keyCode === 87) {
+			board.moveAll(0, -1);
+		}
+		if (e.keyCode === 40 || e.keyCode === 83) {
+			board.moveAll(0, 1);
+		}
+		if (e.keyCode === 37 || e.keyCode === 65) {
+			board.moveAll(-1, 0);
+		}
+		if (e.keyCode === 39 || e.keyCode === 68) {
+			board.moveAll(1, 0);
+		}
+	});
 
 	window.onresize = () => { resize(); };
 	resize();
