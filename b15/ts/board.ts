@@ -226,7 +226,7 @@ export class Board {
 	}
 
 	private getIndexFromPos(pos : THREE.Vector3) : number {
-		const row = Math.floor((this._boardLength / 2 * this._pieceSize - pos.y) / this._pieceSize)
+		const row = Math.floor((2 * this._pieceSize - pos.y) / this._pieceSize)
 		const col = Math.floor((pos.x + this._boardLength / 2 * this._pieceSize) / this._pieceSize);
 
 		if (row < 0 || row >= this._boardLength || col < 0 || col >= this._boardLength) {

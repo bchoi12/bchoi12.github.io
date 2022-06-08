@@ -38,7 +38,7 @@ function main() {
     canvasElm = elm("canvas");
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(30, canvasElm.offsetWidth / canvasElm.offsetHeight, 0.1, 1000);
-    camera.position.copy(new THREE.Vector3(0, 0, 40));
+    camera.position.copy(new THREE.Vector3(0, 0, 45));
     camera.lookAt(new THREE.Vector3(0, 0, 0));
     renderer = new THREE.WebGLRenderer({ canvas: canvasElm, antialias: true });
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
