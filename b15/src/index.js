@@ -18,8 +18,8 @@ var camera;
 var renderer;
 var controls;
 function resize() {
-    width = window.outerWidth;
-    height = window.outerHeight;
+    width = screen.width;
+    height = screen.height;
     renderer.setSize(width, height);
     renderer.setPixelRatio(window.devicePixelRatio);
     canvasElm.style.width = width + "px";
