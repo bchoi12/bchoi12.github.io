@@ -10,12 +10,8 @@ function elm(id : string) : HTMLElement {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-	console.log("hello");
-
 	main();
 });
-
-const pieceSize : number = 3;
 
 var width : number;
 var height : number;
@@ -26,15 +22,14 @@ var renderer : THREE.WebGLRenderer;
 var controls : OrbitControls;
 
 function resize() {
-	width = window.innerWidth;
-	height = window.innerHeight;
-
-	renderer.setSize(width, height);
-	renderer.setPixelRatio(window.devicePixelRatio);
-
 	canvasElm.style.width = 100 + "vw";
 	canvasElm.style.height = 100 + "vh";
 
+	width = canvasElm.clientWidth;
+	height = canvasElm.clientHeight;
+
+	renderer.setSize(width, height);
+	renderer.setPixelRatio(window.devicePixelRatio);
 	camera.aspect = width / height;
 	camera.updateProjectionMatrix();
 

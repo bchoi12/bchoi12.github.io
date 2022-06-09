@@ -6,10 +6,8 @@ function elm(id) {
     return document.getElementById(id);
 }
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log("hello");
     main();
 });
-const pieceSize = 3;
 var width;
 var height;
 var canvasElm;
@@ -18,12 +16,12 @@ var camera;
 var renderer;
 var controls;
 function resize() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    renderer.setSize(width, height);
-    renderer.setPixelRatio(window.devicePixelRatio);
     canvasElm.style.width = 100 + "vw";
     canvasElm.style.height = 100 + "vh";
+    width = canvasElm.clientWidth;
+    height = canvasElm.clientHeight;
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(window.devicePixelRatio);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     controls.update();
