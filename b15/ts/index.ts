@@ -26,8 +26,8 @@ var renderer : THREE.WebGLRenderer;
 var controls : OrbitControls;
 
 function resize() {
-	width = window.innerWidth;
-	height = window.innerHeight;
+	width = window.outerWidth;
+	height = window.outerHeight;
 
 	renderer.setSize(width, height);
 	renderer.setPixelRatio(window.devicePixelRatio);
