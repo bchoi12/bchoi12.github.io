@@ -26,14 +26,14 @@ var renderer : THREE.WebGLRenderer;
 var controls : OrbitControls;
 
 function resize() {
-	width = document.body.clientWidth;
-	height = document.body.clientHeight;
+	width = window.innerWidth;
+	height = window.innerHeight;
 
 	renderer.setSize(width, height);
 	renderer.setPixelRatio(window.devicePixelRatio);
 
-	canvasElm.style.width = width + "px";
-	canvasElm.style.height = height + "px";
+	canvasElm.style.width = 100 + "vw";
+	canvasElm.style.height = 100 + "vh";
 
 	camera.aspect = width / height;
 	camera.updateProjectionMatrix();
