@@ -1,9 +1,12 @@
 import * as THREE from 'three';
 export class Piece {
     constructor(texture, size) {
+        this._size = size;
         const material = new THREE.MeshStandardMaterial({ map: texture });
-        let geometry = new THREE.PlaneGeometry(size, size);
+        const geometry = new THREE.PlaneGeometry(size, size);
         this._mesh = new THREE.Mesh(geometry, material);
+        this._mesh.castShadow = true;
+        this._mesh.receiveShadow = true;
         this._pos = new THREE.Vector3();
         this._moveFrom = new THREE.Vector3();
         this._moveStart = 0;
@@ -11,6 +14,8 @@ export class Piece {
         this._jiggle = false;
         this._jiggleDir = 1;
         this._stopJiggle = 0;
+        this._show = false;
+        this.addSides();
     }
     update() {
         const ts = Date.now() - this._moveStart;
@@ -39,6 +44,9 @@ export class Piece {
                 this._jiggle = false;
             }
         }
+        if (this._show && this._mesh.material.opacity < 1) {
+            this._mesh.material.opacity += 0.01;
+        }
     }
     mesh() {
         return this._mesh;
@@ -61,12 +69,19 @@ export class Piece {
         this._moveTime = millis;
     }
     show() {
-        this._mesh.material.opacity = 1;
+        this._show = true;
     }
     hide() {
-        this._mesh.visible = false;
         this._mesh.material.transparent = true;
         this._mesh.material.opacity = 0;
+    }
+    addSides() {
+        const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+        const geometry = new THREE.PlaneGeometry(this._size, this._size);
+        const back = new THREE.Mesh(geometry, material);
+        back.position.z = -1;
+        back.rotation.y = Math.PI;
+        this._mesh.add(back);
     }
     randomRange(min, max) {
         return Math.random() * (max - min) + min;

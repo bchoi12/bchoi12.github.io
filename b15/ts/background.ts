@@ -16,7 +16,7 @@ export class Background {
 		uniforms['mieDirectionalG'].value = 0.999;
 
 		const sun = new THREE.Vector3();
-		sun.setFromSphericalCoords(1, 1.45, 0.93 * Math.PI);
+		sun.setFromSphericalCoords(1, 1.4, 0.96 * Math.PI);
 		uniforms['sunPosition'].value.copy(sun);
 		this._scene.add(sky);
 

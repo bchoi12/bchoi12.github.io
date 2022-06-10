@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 
 export class Piece {
-	private _num : number;
+	private _size : number;
 	private _mesh : THREE.Mesh;
 
 	private _pos : THREE.Vector3;
@@ -13,10 +13,16 @@ export class Piece {
 	private _jiggleDir : number;
 	private _stopJiggle : number;
 
+	private _show : boolean;
+
 	constructor(texture : THREE.Texture, size : number) {
+		this._size = size;
+
 		const material = new THREE.MeshStandardMaterial({map: texture});
-		let geometry = new THREE.PlaneGeometry(size, size);
+		const geometry = new THREE.PlaneGeometry(size, size);
 		this._mesh = new THREE.Mesh(geometry, material);
+		this._mesh.castShadow = true;
+		this._mesh.receiveShadow = true;
 
 		this._pos = new THREE.Vector3();
 		this._moveFrom = new THREE.Vector3();
@@ -26,6 +32,10 @@ export class Piece {
 		this._jiggle = false;
 		this._jiggleDir = 1;
 		this._stopJiggle = 0;
+
+		this._show = false;
+
+		this.addSides();
 	}
 
 	update() : void {
@@ -59,6 +69,10 @@ export class Piece {
 			}
 		}
 
+		if (this._show && this._mesh.material.opacity < 1) {
+			this._mesh.material.opacity += 0.01;
+		}
+
 	}
 
 	mesh() : THREE.Mesh {
@@ -88,16 +102,21 @@ export class Piece {
 	}
 
 	show() : void {
-		// @ts-ignore
-		this._mesh.material.opacity = 1;
+		this._show = true;
 	}
 
 	hide() : void {
-		this._mesh.visible = false;
-		// @ts-ignore
 		this._mesh.material.transparent = true;
-		// @ts-ignore
 		this._mesh.material.opacity = 0;
+	}
+
+	private addSides() : void {
+		const material = new THREE.MeshStandardMaterial({color: 0xff0000});
+		const geometry = new THREE.PlaneGeometry(this._size, this._size);
+		const back = new THREE.Mesh(geometry, material);
+		back.position.z = -1;
+		back.rotation.y = Math.PI;
+		this._mesh.add(back);
 	}
 
 	private randomRange(min : number, max : number) : number {

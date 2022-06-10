@@ -1,4 +1,7 @@
 import * as THREE from 'three'
+import smartcrop from 'smartcrop'
+import { CropResult } from 'smartcrop'
+import { Day } from './day.js'
 import { Piece } from './piece.js'
 
 export enum Dir {
@@ -17,13 +20,17 @@ export class Board {
 	private readonly _boardSize : number = this._boardLength * this._boardLength;
 	private readonly _emptyValue : number = this._boardSize - 1;
 
+	private _day : Day;
 	private _board : Array<number>;
 	private _emptyIndex : number;
 	private _pieces : Map<number, Piece>
 	private _scene : THREE.Scene;
 	private _textureUrl : string;
 
+	private _victory : boolean;
+
 	constructor(url : string) {
+		this._day = new Day();
 		this._board = new Array();
 		for (let i = 0 ; i < this._boardLength * this._boardLength; ++i) {
 			this._board.push(i);
@@ -64,6 +71,8 @@ export class Board {
 
 		if (this.victory()) {
 			console.log("WIN");
+			this._pieces.get(this._emptyIndex).show();
+			this._victory = true;
 		}
 	}
 
@@ -77,10 +86,16 @@ export class Board {
 
 		if (this.victory()) {
 			console.log("WIN");
+			this._pieces.get(this._emptyIndex).show();
+			this._victory = true;
 		}
 	}
 
 	victory() : boolean {
+		if (this._victory) {
+			return true;
+		}
+
 		for (let i = 0; i < this._boardSize; ++i) {
 			if (this._board[i] != i) {
 				return false;
@@ -94,6 +109,10 @@ export class Board {
 	}
 
 	private movePiece(pieceIndex : number) : void {
+		if (this._victory) {
+			return;
+		}
+
 		if (!this.validIndex(pieceIndex)) {
 			return;
 		}
@@ -128,6 +147,7 @@ export class Board {
 	private shuffleBoard() : void {
 		let disallowedDir = Dir.UNKNOWN;
 		const allDirs = [Dir.UP, Dir.RIGHT, Dir.LEFT, Dir.DOWN];
+		this._day.restartRandom();
 		for (let i = 0; i < this._shuffleMoves; ++i) {
 			let dirs = [];
 
@@ -156,7 +176,7 @@ export class Board {
 	}
 
 	private randomDir(validDir : Array<Dir>) : Dir {
-		const random = Math.random();
+		const random = this._day.random();
 
 		for (let i = 0; i < validDir.length; ++i) {
 			if (random < (i+1) / validDir.length) {
@@ -167,24 +187,47 @@ export class Board {
 	}
 
 	private populatePieces() {
+		const image = new Image();
+		image.src = this._textureUrl;
+		image.crossOrigin = "anonymous";
+
+		image.onload = () => {
+			const side = Math.min(image.width, image.height);
+			smartcrop.crop(image, {width: side, height: side}).then((crop) => {
+				this.loadTexture(crop, image);
+			});
+		};
+	}
+
+	private loadTexture(crop : CropResult, image : HTMLImageElement) {
 		new THREE.TextureLoader().load(this._textureUrl, (texture) => {
 			for (let i = 0; i < this._board.length; ++i) {
-				const correctIndex = this._board[i];
-
 				let piece = new Piece(texture, this._pieceSize);
-				this.mapUV(correctIndex, piece.mesh().geometry);
 				piece.move(this.getPos(i), 0);
-				if (correctIndex === this._emptyValue) {
+				if (this._board[i] === this._emptyValue) {
 					this._emptyIndex = i;
-					piece.hide();
 				}
 				this._pieces.set(i, piece);
 				this._scene.add(piece.mesh());
 			}
+
+			for (let i = 0; i < this._board.length; ++i) {
+				const uMin = crop.topCrop.x / crop.topCrop.width;
+				const vMin = crop.topCrop.y / crop.topCrop.height;
+				const uMax = crop.topCrop.width / image.width;
+				const vMax = crop.topCrop.height / image.height;
+				const piece = this._pieces.get(i);
+
+				this.mapUV(this._board[i], uMin, uMax, vMin, vMax, piece.mesh().geometry);
+
+				if (this._board[i] === this._emptyValue) {
+					piece.hide();
+				}
+			}
 		});
 	}
 
-	private mapUV(index : number, geometry : THREE.BufferGeometry) : void {
+	private mapUV(index : number, uMin : number, uMax : number, vMin : number, vMax : number, geometry : THREE.BufferGeometry) : void {
 		const [row, col] = this.getRowCol(index);
 
 		let uvPositions = [];
@@ -192,11 +235,17 @@ export class Board {
 		for(let i = 0; i < vertices.length / 3; i++) {
 		  let [x, y] = [vertices[3*i], vertices[3*i + 1]];
 
-		  const u = (x + this._pieceSize / 2) / this._pieceSize;
-		  const v = (y + this._pieceSize / 2) / this._pieceSize;
+		  let u = (x + this._pieceSize / 2) / this._pieceSize;
+		  let v = (y + this._pieceSize / 2) / this._pieceSize;
 
-		  uvPositions.push(u / this._boardLength + col / this._boardLength);
-		  uvPositions.push(v / this._boardLength + (this._boardLength - 1 - row) / this._boardLength);
+		  u = u / this._boardLength + col / this._boardLength;
+		  v = v / this._boardLength + (this._boardLength - 1 - row) / this._boardLength
+
+		  u = (uMax - uMin) * u + uMin;
+		  v = (vMax - vMin) * v + vMin;
+
+		  uvPositions.push(u);
+		  uvPositions.push(v);
 		}
 		geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvPositions, 2 ));
 	}

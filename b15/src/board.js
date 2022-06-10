@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import smartcrop from 'smartcrop';
+import { Day } from './day.js';
 import { Piece } from './piece.js';
 export var Dir;
 (function (Dir) {
@@ -15,6 +17,7 @@ export class Board {
         this._pieceSize = 3;
         this._boardSize = this._boardLength * this._boardLength;
         this._emptyValue = this._boardSize - 1;
+        this._day = new Day();
         this._board = new Array();
         for (let i = 0; i < this._boardLength * this._boardLength; ++i) {
             this._board.push(i);
@@ -52,6 +55,8 @@ export class Board {
         }
         if (this.victory()) {
             console.log("WIN");
+            this._pieces.get(this._emptyIndex).show();
+            this._victory = true;
         }
     }
     click(pos) {
@@ -62,9 +67,14 @@ export class Board {
         this.movePiece(index);
         if (this.victory()) {
             console.log("WIN");
+            this._pieces.get(this._emptyIndex).show();
+            this._victory = true;
         }
     }
     victory() {
+        if (this._victory) {
+            return true;
+        }
         for (let i = 0; i < this._boardSize; ++i) {
             if (this._board[i] != i) {
                 return false;
@@ -76,6 +86,9 @@ export class Board {
         return [Math.floor(index / this._boardLength), index % this._boardLength];
     }
     movePiece(pieceIndex) {
+        if (this._victory) {
+            return;
+        }
         if (!this.validIndex(pieceIndex)) {
             return;
         }
@@ -103,6 +116,7 @@ export class Board {
     shuffleBoard() {
         let disallowedDir = Dir.UNKNOWN;
         const allDirs = [Dir.UP, Dir.RIGHT, Dir.LEFT, Dir.DOWN];
+        this._day.restartRandom();
         for (let i = 0; i < this._shuffleMoves; ++i) {
             let dirs = [];
             for (const dir of allDirs) {
@@ -131,7 +145,7 @@ export class Board {
         }
     }
     randomDir(validDir) {
-        const random = Math.random();
+        const random = this._day.random();
         for (let i = 0; i < validDir.length; ++i) {
             if (random < (i + 1) / validDir.length) {
                 return validDir[i];
@@ -140,31 +154,54 @@ export class Board {
         return Dir.UNKNOWN;
     }
     populatePieces() {
+        const image = new Image();
+        image.src = this._textureUrl;
+        image.crossOrigin = "anonymous";
+        image.onload = () => {
+            const side = Math.min(image.width, image.height);
+            smartcrop.crop(image, { width: side, height: side }).then((crop) => {
+                this.loadTexture(crop, image);
+            });
+        };
+    }
+    loadTexture(crop, image) {
         new THREE.TextureLoader().load(this._textureUrl, (texture) => {
             for (let i = 0; i < this._board.length; ++i) {
-                const correctIndex = this._board[i];
                 let piece = new Piece(texture, this._pieceSize);
-                this.mapUV(correctIndex, piece.mesh().geometry);
                 piece.move(this.getPos(i), 0);
-                if (correctIndex === this._emptyValue) {
+                if (this._board[i] === this._emptyValue) {
                     this._emptyIndex = i;
-                    piece.hide();
                 }
                 this._pieces.set(i, piece);
                 this._scene.add(piece.mesh());
             }
+            for (let i = 0; i < this._board.length; ++i) {
+                const uMin = crop.topCrop.x / crop.topCrop.width;
+                const vMin = crop.topCrop.y / crop.topCrop.height;
+                const uMax = crop.topCrop.width / image.width;
+                const vMax = crop.topCrop.height / image.height;
+                const piece = this._pieces.get(i);
+                this.mapUV(this._board[i], uMin, uMax, vMin, vMax, piece.mesh().geometry);
+                if (this._board[i] === this._emptyValue) {
+                    piece.hide();
+                }
+            }
         });
     }
-    mapUV(index, geometry) {
+    mapUV(index, uMin, uMax, vMin, vMax, geometry) {
         const [row, col] = this.getRowCol(index);
         let uvPositions = [];
         const vertices = geometry.attributes.position.array;
         for (let i = 0; i < vertices.length / 3; i++) {
             let [x, y] = [vertices[3 * i], vertices[3 * i + 1]];
-            const u = (x + this._pieceSize / 2) / this._pieceSize;
-            const v = (y + this._pieceSize / 2) / this._pieceSize;
-            uvPositions.push(u / this._boardLength + col / this._boardLength);
-            uvPositions.push(v / this._boardLength + (this._boardLength - 1 - row) / this._boardLength);
+            let u = (x + this._pieceSize / 2) / this._pieceSize;
+            let v = (y + this._pieceSize / 2) / this._pieceSize;
+            u = u / this._boardLength + col / this._boardLength;
+            v = v / this._boardLength + (this._boardLength - 1 - row) / this._boardLength;
+            u = (uMax - uMin) * u + uMin;
+            v = (vMax - vMin) * v + vMin;
+            uvPositions.push(u);
+            uvPositions.push(v);
         }
         geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvPositions, 2));
     }

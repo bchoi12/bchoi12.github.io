@@ -37,6 +37,10 @@ function resize() {
 }
 
 function animate(board : Board) {
+	if (board.victory()) {
+		controls.enabled = true;
+	}
+
 	board.update();
 	renderer.render(scene, camera);
 	controls.update();

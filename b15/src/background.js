@@ -11,7 +11,7 @@ export class Background {
         uniforms['mieCoefficient'].value = 0.00003;
         uniforms['mieDirectionalG'].value = 0.999;
         const sun = new THREE.Vector3();
-        sun.setFromSphericalCoords(1, 1.45, 0.93 * Math.PI);
+        sun.setFromSphericalCoords(1, 1.4, 0.96 * Math.PI);
         uniforms['sunPosition'].value.copy(sun);
         this._scene.add(sky);
         const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x565656, 1.2);
