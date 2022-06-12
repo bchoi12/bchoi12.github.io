@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import smartcrop from 'smartcrop'
 import { CropResult } from 'smartcrop'
-import { Day } from './day.js'
 import { Piece } from './piece.js'
+import { today } from './today.js'
 
 export enum Dir {
 	UNKNOWN,
@@ -20,7 +20,6 @@ export class Board {
 	private readonly _boardSize : number = this._boardLength * this._boardLength;
 	private readonly _emptyValue : number = this._boardSize - 1;
 
-	private _day : Day;
 	private _board : Array<number>;
 	private _emptyIndex : number;
 	private _pieces : Map<number, Piece>
@@ -30,17 +29,25 @@ export class Board {
 	private _victory : boolean;
 
 	constructor(url : string) {
-		this._day = new Day();
 		this._board = new Array();
-		for (let i = 0 ; i < this._boardLength * this._boardLength; ++i) {
-			this._board.push(i);
-		}
 		this._emptyIndex = this._boardLength * this._boardLength - 1;
 		this._pieces = new Map();
 		this._scene = new THREE.Scene();
 		this._textureUrl = url;
 
-		this.shuffleBoard();
+		const board = this.getBoard();
+		if (board.length === this._boardSize) {
+			for (let i = 0; i < this._boardSize; ++i) {
+				this._board.push(Number(board[i]));
+			}
+		} else {
+			for (let i = 0 ; i < this._boardSize; ++i) {
+				this._board.push(i);
+			}
+			this.shuffleBoard();
+		}
+		this.postMove();
+
 		this.populatePieces();
 	}
 
@@ -54,44 +61,50 @@ export class Board {
 		});
 	}
 
-	move(dir : Dir) {
+	move(dir : Dir, systemMove : boolean = false) {
 		if (!this.validDir(dir)) {
 			return;
 		}
 
+		let moveIndex = -1;;
 		if (dir === Dir.DOWN) {
-			this.movePiece(this._emptyIndex - this._boardLength);
+			moveIndex = this._emptyIndex - this._boardLength;
 		} else if (dir === Dir.UP) {
-			this.movePiece(this._emptyIndex + this._boardLength);
+			moveIndex = this._emptyIndex + this._boardLength;
 		} else if (dir === Dir.LEFT) {
-			this.movePiece(this._emptyIndex + 1);
+			moveIndex = this._emptyIndex + 1;
 		} else if (dir === Dir.RIGHT) {
-			this.movePiece(this._emptyIndex - 1);
+			moveIndex = this._emptyIndex - 1;
 		}
 
-		if (this.victory()) {
-			console.log("WIN");
-			this._pieces.get(this._emptyIndex).show();
-			this._victory = true;
+		const moved = this.movePiece(moveIndex)
+		if (!systemMove && moved) {
+			this.postMove();
 		}
 	}
 
-	click(pos : THREE.Vector3) {
+	click(pos : THREE.Vector3, systemMove : boolean = false) {
 		const index = this.getIndexFromPos(pos);
 		if (!this.validIndex(index)) {
 			return;
 		}
 
-		this.movePiece(index);
+		const moved = this.movePiece(index)
+		if (!systemMove && moved) {
+			this.postMove();
+		}
+	}
+
+	private postMove() : void {
+		this.saveBoard();
 
 		if (this.victory()) {
-			console.log("WIN");
 			this._pieces.get(this._emptyIndex).show();
 			this._victory = true;
 		}
 	}
 
-	victory() : boolean {
+	private victory() : boolean {
 		if (this._victory) {
 			return true;
 		}
@@ -108,24 +121,24 @@ export class Board {
 		return [Math.floor(index / this._boardLength), index % this._boardLength];
 	}
 
-	private movePiece(pieceIndex : number) : void {
+	private movePiece(pieceIndex : number) : boolean {
 		if (this._victory) {
-			return;
+			return false;
 		}
 
 		if (!this.validIndex(pieceIndex)) {
-			return;
+			return false;
 		}
 
 		if (pieceIndex === this._emptyIndex) {
-			return;
+			return false;
 		}
 
 		const [pieceRow, pieceCol] = this.getRowCol(pieceIndex);
 		const [emptyRow, emptyCol] = this.getRowCol(this._emptyIndex);
 		if (Math.abs(pieceRow - emptyRow) + Math.abs(pieceCol - emptyCol) !== 1) {
 			this._pieces.get(pieceIndex).jiggle(600);
-			return;
+			return false;
 		}
 
 		if (this._pieces.has(pieceIndex)) {
@@ -142,12 +155,13 @@ export class Board {
 		this._board[this._emptyIndex] = temp;
 
 		this._emptyIndex = pieceIndex;
+		return true;
 	}
 
 	private shuffleBoard() : void {
 		let disallowedDir = Dir.UNKNOWN;
 		const allDirs = [Dir.UP, Dir.RIGHT, Dir.LEFT, Dir.DOWN];
-		this._day.restartRandom();
+		today.restartRandom();
 		for (let i = 0; i < this._shuffleMoves; ++i) {
 			let dirs = [];
 
@@ -162,7 +176,7 @@ export class Board {
 			}
 
 			const randomDir = this.randomDir(dirs);
-			this.move(randomDir);
+			this.move(randomDir, true);
 			if (randomDir === Dir.UP) {
 				disallowedDir = Dir.DOWN;
 			} else if (randomDir === Dir.DOWN) {
@@ -176,7 +190,7 @@ export class Board {
 	}
 
 	private randomDir(validDir : Array<Dir>) : Dir {
-		const random = this._day.random();
+		const random = today.random();
 
 		for (let i = 0; i < validDir.length; ++i) {
 			if (random < (i+1) / validDir.length) {
@@ -290,5 +304,33 @@ export class Board {
 		const x = this._pieceSize * col - this._pieceSize * this._pieceSize / 2;
 		const y = (this._boardLength / 2 - row) * this._pieceSize - this._pieceSize / 2;
 		return new THREE.Vector3(x, y, 0);
+	}
+
+	private saveBoard() : void {
+		const tomorrow = today.tomorrow().toUTCString();
+		document.cookie = "board=" + this._board.toString() + "; expires=" + tomorrow + "; SameSite=None; Secure";
+	}
+
+	private getBoard() : Array<string> {
+		if (typeof document.cookie === 'undefined' || document.cookie.length === 0) {
+			return [];
+		}
+
+		const pair = document.cookie.split(";").find(line => line.trim().startsWith("board="));
+		if (typeof pair === 'undefined' || pair.length === 0) {
+			return [];
+		}
+
+		const value = pair.split("=");
+		if (value.length !== 2) {
+			return [];
+		}
+
+		const board = value[1].split(",");
+		if (board.length !== this._boardSize) {
+			return [];
+		}
+
+		return board;
 	}
 }

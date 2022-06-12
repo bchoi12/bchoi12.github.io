@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 import { Background } from './background.js'
 import { Board, Dir } from './board.js'
+import { today } from './today.js'
 
 
 function elm(id : string) : HTMLElement {
@@ -37,10 +38,7 @@ function resize() {
 }
 
 function animate(board : Board) {
-	if (board.victory()) {
-		controls.enabled = true;
-	}
-
+	renderer.toneMappingExposure = today.isNight() ? 0.4 : 1.0;
 	board.update();
 	renderer.render(scene, camera);
 	controls.update();
@@ -55,7 +53,6 @@ function main() : void {
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 	renderer = new THREE.WebGLRenderer({canvas: canvasElm, antialias: true});
 	renderer.toneMapping = THREE.ACESFilmicToneMapping;
-	renderer.toneMappingExposure = 1.0;
 	renderer.shadowMap.enabled = true;
 	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 	controls = new OrbitControls(camera, renderer.domElement);
