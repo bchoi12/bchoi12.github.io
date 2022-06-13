@@ -138,7 +138,6 @@ export class Piece {
 		const back = new THREE.Mesh(geometry, this.randomMaterial());
 		back.rotation.y = Math.PI;
 		back.position.z = -this._sizeZ;
-		back.castShadow = true;
 		back.receiveShadow = true;
 		this._mesh.add(back);
 
@@ -146,7 +145,6 @@ export class Piece {
 		left.rotation.y = 3 * Math.PI / 2;
 		left.position.z = -this._sizeZ / 2;
 		left.position.x = -this._size / 2; 
-		left.castShadow = true;
 		left.receiveShadow = true;
 		this._mesh.add(left);
 
@@ -154,7 +152,6 @@ export class Piece {
 		right.rotation.y = Math.PI / 2;
 		right.position.z = -this._sizeZ / 2;
 		right.position.x = this._size / 2; 
-		right.castShadow = true;
 		right.receiveShadow = true;
 		this._mesh.add(right);
 
@@ -162,7 +159,6 @@ export class Piece {
 		up.rotation.x = 3 * Math.PI / 2;
 		up.position.z = -this._sizeZ / 2;
 		up.position.y = this._size / 2; 
-		up.castShadow = true;
 		up.receiveShadow = true;
 		this._mesh.add(up);
 
@@ -170,7 +166,6 @@ export class Piece {
 		down.rotation.x = Math.PI / 2;
 		down.position.z = -this._sizeZ / 2;
 		down.position.y = -this._size / 2; 
-		down.castShadow = true;
 		down.receiveShadow = true;
 		this._mesh.add(down);
 	}

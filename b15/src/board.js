@@ -18,7 +18,7 @@ export class Board {
         this._boardSize = this._boardLength * this._boardLength;
         this._emptyValue = this._boardSize - 1;
         this._board = new Array();
-        this._emptyIndex = this._boardLength * this._boardLength - 1;
+        this._emptyIndex = this._emptyValue;
         this._pieces = new Map();
         this._scene = new THREE.Scene();
         this._textureUrl = url;
@@ -37,7 +37,6 @@ export class Board {
             this.shuffleBoard();
         }
         this.populatePieces();
-        this.postMove();
     }
     scene() {
         return this._scene;
@@ -48,7 +47,10 @@ export class Board {
         });
     }
     move(dir, systemMove = false) {
-        if (!this._loaded || !this.validDir(dir)) {
+        if (!this.validDir(dir)) {
+            return;
+        }
+        if (!this._loaded && !systemMove) {
             return;
         }
         let moveIndex = -1;
@@ -71,7 +73,7 @@ export class Board {
         }
     }
     click(pos, systemMove = false) {
-        if (!this._loaded) {
+        if (!this._loaded && !systemMove) {
             return;
         }
         const index = this.getIndexFromPos(pos);
@@ -210,9 +212,12 @@ export class Board {
             }
             for (let i = 0; i < this._board.length; ++i) {
                 setTimeout(() => {
-                    this._pieces.get(i).move(this.getPos(i), 800, (x) => { return -x * x + 2 * x; });
+                    this._pieces.get(this._board[i]).move(this.getPos(this._board[i]), 800, (x) => { return -x * x + 2 * x; });
                     if (i === this._board.length - 1) {
-                        this._loaded = true;
+                        setTimeout(() => {
+                            this._loaded = true;
+                            this.postMove();
+                        }, 800);
                     }
                 }, 150 * i);
             }

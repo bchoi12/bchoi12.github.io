@@ -67,7 +67,7 @@ export class Background {
 		const night = today.isNight();
 
 		let uniforms = this._sky.material.uniforms;
-		uniforms['turbidity'].value = 2;
+		uniforms['turbidity'].value = 1;
 		uniforms['rayleigh'].value = 1.0;
 		uniforms['mieCoefficient'].value = 0.1;
 		uniforms['mieDirectionalG'].value = night ? 1 : 0.9999;
@@ -77,6 +77,8 @@ export class Background {
 		const sunLightOffset = uniforms['sunPosition'].value.clone();
 		sunLightOffset.multiplyScalar(86);
 		this._sunLight.position.copy(sunLightOffset);
+
+		this._sunLight.intensity = today.isNight() ? 0.3 : 2.0;
 
 		this._spotLights.forEach((spotLight) => {
 			spotLight.intensity = today.isNight() ? 2.0 : 0.3;
