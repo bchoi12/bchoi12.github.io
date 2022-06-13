@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { Sky } from 'three/examples/jsm/objects/Sky.js';
-import { Firework } from './firework.js';
 import { today } from './today.js';
 export class Background {
     constructor() {
@@ -37,10 +36,6 @@ export class Background {
         }
         this.updateSky();
         this._fireworks = new Array();
-        const firework = new Firework();
-        firework.enable();
-        this._fireworks.push(firework);
-        this._scene.add(firework.mesh());
     }
     scene() {
         return this._scene;

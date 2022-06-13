@@ -47,7 +47,6 @@ export class Firework {
         return this._mesh;
     }
     update() {
-        console.log(this._state);
         switch (this._state) {
             case State.WAITING:
                 this._mesh.position.copy(this._startPos);
