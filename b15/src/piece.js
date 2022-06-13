@@ -1,6 +1,14 @@
 import * as THREE from 'three';
 export class Piece {
     constructor(texture, size) {
+        this._purpleMaterials = [
+            new THREE.MeshStandardMaterial({ color: 0x702963, shadowSide: THREE.FrontSide }),
+            new THREE.MeshStandardMaterial({ color: 0xBF40BF, shadowSide: THREE.FrontSide }),
+            new THREE.MeshStandardMaterial({ color: 0xCF9FFF, shadowSide: THREE.FrontSide }),
+            new THREE.MeshStandardMaterial({ color: 0xDA70D6, shadowSide: THREE.FrontSide }),
+            new THREE.MeshStandardMaterial({ color: 0x800080, shadowSide: THREE.FrontSide }),
+            new THREE.MeshStandardMaterial({ color: 0x673147, shadowSide: THREE.FrontSide })
+        ];
         this._size = size;
         this._sizeZ = size;
         const material = new THREE.MeshStandardMaterial({ map: texture });
@@ -22,7 +30,7 @@ export class Piece {
         const ts = Date.now() - this._moveStart;
         if (ts < this._moveTime) {
             const x = ts / this._moveTime;
-            const weight = 2.4 * x * x - 1.4 * x;
+            const weight = this._weightFn(x);
             const moveFrom = this._moveFrom.clone();
             moveFrom.lerp(this._pos, weight);
             this._mesh.position.copy(moveFrom);
@@ -56,7 +64,7 @@ export class Piece {
         this._jiggle = true;
         this._stopJiggle = Date.now() + millis;
     }
-    move(pos, millis) {
+    move(pos, millis = 0, weightFn = (x) => { return 2.4 * x * x - 1.4 * x; }) {
         this._moveFrom = this._pos;
         this._pos = pos.clone();
         if (typeof this._mesh === 'undefined') {
@@ -66,6 +74,7 @@ export class Piece {
             this._mesh.position.copy(pos);
             return;
         }
+        this._weightFn = weightFn;
         this._moveStart = Date.now();
         this._moveTime = millis;
     }
@@ -120,19 +129,12 @@ export class Piece {
         return Math.random() * (max - min) + min;
     }
     randomMaterial() {
-        let materials = [];
-        materials.push(new THREE.MeshStandardMaterial({ color: 0x702963 }));
-        materials.push(new THREE.MeshStandardMaterial({ color: 0xBF40BF }));
-        materials.push(new THREE.MeshStandardMaterial({ color: 0xCF9FFF }));
-        materials.push(new THREE.MeshStandardMaterial({ color: 0xDA70D6 }));
-        materials.push(new THREE.MeshStandardMaterial({ color: 0x800080 }));
-        materials.push(new THREE.MeshStandardMaterial({ color: 0x673147 }));
         const random = Math.random();
-        for (let i = 0; i < materials.length; ++i) {
-            if (random <= (i + 1) / materials.length) {
-                return materials[i];
+        for (let i = 0; i < this._purpleMaterials.length; ++i) {
+            if (random <= (i + 1) / this._purpleMaterials.length) {
+                return this._purpleMaterials[i];
             }
         }
-        return materials[0];
+        return this._purpleMaterials[0];
     }
 }

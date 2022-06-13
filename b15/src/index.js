@@ -27,12 +27,13 @@ function resize() {
     camera.updateProjectionMatrix();
     controls.update();
 }
-function animate(board) {
-    renderer.toneMappingExposure = today.isNight() ? 0.4 : 1.0;
+function animate(board, background) {
     board.update();
+    background.update();
+    renderer.toneMappingExposure = today.isNight() ? 0.4 : 1.0;
     renderer.render(scene, camera);
     controls.update();
-    requestAnimationFrame(() => { animate(board); });
+    requestAnimationFrame(() => { animate(board, background); });
 }
 function main() {
     canvasElm = elm("canvas");
@@ -45,7 +46,7 @@ function main() {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.enabled = false;
+    controls.enabled = true;
     controls.update();
     const background = new Background();
     scene.add(background.scene());
@@ -79,5 +80,5 @@ function main() {
     });
     window.onresize = () => { resize(); };
     resize();
-    animate(board);
+    animate(board, background);
 }

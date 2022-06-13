@@ -22,6 +22,8 @@ export class Board {
         this._pieces = new Map();
         this._scene = new THREE.Scene();
         this._textureUrl = url;
+        this._victory = false;
+        this._loaded = false;
         const board = this.getBoard();
         if (board.length === this._boardSize) {
             for (let i = 0; i < this._boardSize; ++i) {
@@ -34,8 +36,8 @@ export class Board {
             }
             this.shuffleBoard();
         }
-        this.postMove();
         this.populatePieces();
+        this.postMove();
     }
     scene() {
         return this._scene;
@@ -46,7 +48,7 @@ export class Board {
         });
     }
     move(dir, systemMove = false) {
-        if (!this.validDir(dir)) {
+        if (!this._loaded || !this.validDir(dir)) {
             return;
         }
         let moveIndex = -1;
@@ -69,6 +71,9 @@ export class Board {
         }
     }
     click(pos, systemMove = false) {
+        if (!this._loaded) {
+            return;
+        }
         const index = this.getIndexFromPos(pos);
         if (!this.validIndex(index)) {
             return;
@@ -76,13 +81,6 @@ export class Board {
         const moved = this.movePiece(index);
         if (!systemMove && moved) {
             this.postMove();
-        }
-    }
-    postMove() {
-        this.saveBoard();
-        if (this.victory()) {
-            this._pieces.get(this._emptyIndex).show();
-            this._victory = true;
         }
     }
     victory() {
@@ -95,6 +93,13 @@ export class Board {
             }
         }
         return true;
+    }
+    postMove() {
+        this.saveBoard();
+        if (this.victory()) {
+            this._pieces.get(this._emptyIndex).show();
+            this._victory = true;
+        }
     }
     getRowCol(index) {
         return [Math.floor(index / this._boardLength), index % this._boardLength];
@@ -183,7 +188,9 @@ export class Board {
         new THREE.TextureLoader().load(this._textureUrl, (texture) => {
             for (let i = 0; i < this._board.length; ++i) {
                 let piece = new Piece(texture, this._pieceSize);
-                piece.move(this.getPos(i), 0);
+                let startingPos = this.getPos(i);
+                startingPos.y += 25 + 5 * Math.random();
+                piece.move(startingPos, 0);
                 if (this._board[i] === this._emptyValue) {
                     this._emptyIndex = i;
                 }
@@ -200,6 +207,14 @@ export class Board {
                 if (this._board[i] === this._emptyValue) {
                     piece.hide();
                 }
+            }
+            for (let i = 0; i < this._board.length; ++i) {
+                setTimeout(() => {
+                    this._pieces.get(i).move(this.getPos(i), 800, (x) => { return -x * x + 2 * x; });
+                    if (i === this._board.length - 1) {
+                        this._loaded = true;
+                    }
+                }, 150 * i);
             }
         });
     }
@@ -257,13 +272,27 @@ export class Board {
     }
     saveBoard() {
         const tomorrow = today.tomorrow().toUTCString();
-        document.cookie = "board=" + this._board.toString() + "; expires=" + tomorrow + "; SameSite=None; Secure";
+        const expires = "; expires=" + tomorrow + "; SameSite=None; Secure";
+        document.cookie = "day=" + today.currentDay() + expires;
+        document.cookie = "board=" + this._board.toString() + expires;
     }
     getBoard() {
         if (typeof document.cookie === 'undefined' || document.cookie.length === 0) {
             return [];
         }
-        const pair = document.cookie.split(";").find(line => line.trim().startsWith("board="));
+        const split = document.cookie.split(";");
+        const dayPair = split.find(line => line.trim().startsWith("day="));
+        if (typeof dayPair === 'undefined' || dayPair.length === 0) {
+            return [];
+        }
+        const dayValue = dayPair.split("=");
+        if (dayValue.length !== 2) {
+            return [];
+        }
+        if (today.currentDay() !== Number(dayValue[1])) {
+            return [];
+        }
+        const pair = split.find(line => line.trim().startsWith("board="));
         if (typeof pair === 'undefined' || pair.length === 0) {
             return [];
         }

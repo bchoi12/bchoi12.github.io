@@ -1,6 +1,21 @@
 import * as THREE from 'three'
 
 export class Piece {
+	// https://htmlcolorcodes.com/colors/shades-of-purple/
+	private readonly _purpleMaterials : Array<THREE.Material> = [
+		// byzantium
+		new THREE.MeshStandardMaterial({color: 0x702963, shadowSide: THREE.FrontSide}),
+		// bright purple
+		new THREE.MeshStandardMaterial({color: 0xBF40BF, shadowSide: THREE.FrontSide}),
+		// light violet
+		new THREE.MeshStandardMaterial({color: 0xCF9FFF, shadowSide: THREE.FrontSide}),		
+		// orchid
+		new THREE.MeshStandardMaterial({color: 0xDA70D6, shadowSide: THREE.FrontSide}),
+		// purple		
+		new THREE.MeshStandardMaterial({color: 0x800080, shadowSide: THREE.FrontSide}),
+		// plum
+		new THREE.MeshStandardMaterial({color: 0x673147, shadowSide: THREE.FrontSide})];
+
 	private _size : number;
 	private _sizeZ : number;
 	private _mesh : THREE.Mesh;
@@ -9,6 +24,7 @@ export class Piece {
 	private _moveFrom : THREE.Vector3;
 	private _moveStart : number;
 	private _moveTime : number;
+	private _weightFn : any;
 
 	private _jiggle : boolean;
 	private _jiggleDir : number;
@@ -44,7 +60,7 @@ export class Piece {
 		const ts = Date.now() - this._moveStart;
 		if (ts < this._moveTime) {
 			const x = ts / this._moveTime;
-			const weight = 2.4 * x * x - 1.4 * x;
+			const weight = this._weightFn(x);
 
 			const moveFrom = this._moveFrom.clone();
 			moveFrom.lerp(this._pos, weight);
@@ -86,7 +102,7 @@ export class Piece {
 		this._stopJiggle = Date.now() + millis;
 	}
 
-	move(pos : THREE.Vector3, millis : number) : void {
+	move(pos : THREE.Vector3, millis : number = 0, weightFn : any = (x) => { return 2.4 * x * x - 1.4 * x}) : void {
 		this._moveFrom = this._pos
 		this._pos = pos.clone();
 
@@ -99,6 +115,7 @@ export class Piece {
 			return;
 		}
 
+		this._weightFn = weightFn;
 		this._moveStart = Date.now();
 		this._moveTime = millis;
 	}
@@ -163,34 +180,12 @@ export class Piece {
 	}
 
 	private randomMaterial() : THREE.MeshStandardMaterial {
-		let materials = [];
-
-		// https://htmlcolorcodes.com/colors/shades-of-purple/
-
-		// byzantium
-		materials.push(new THREE.MeshStandardMaterial({color: 0x702963}));
-		
-		// bright purple
-		materials.push(new THREE.MeshStandardMaterial({color: 0xBF40BF}));
-		
-		// light violet
-		materials.push(new THREE.MeshStandardMaterial({color: 0xCF9FFF}));		
-			
-		// orchid
-		materials.push(new THREE.MeshStandardMaterial({color: 0xDA70D6}));
-
-		// purple		
-		materials.push(new THREE.MeshStandardMaterial({color: 0x800080}));
-
-		// plum
-		materials.push(new THREE.MeshStandardMaterial({color: 0x673147}));	
-
 		const random = Math.random();
-		for (let i = 0; i < materials.length; ++i) {
-			if (random <= (i + 1) / materials.length) {
-				return materials[i];
+		for (let i = 0; i < this._purpleMaterials.length; ++i) {
+			if (random <= (i + 1) / this._purpleMaterials.length) {
+				return this._purpleMaterials[i];
 			}
 		}
-		return materials[0];
+		return this._purpleMaterials[0];
 	} 
 }
