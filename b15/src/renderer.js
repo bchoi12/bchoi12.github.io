@@ -15,7 +15,9 @@ export class Renderer {
         this._renderer.shadowMap.enabled = true;
         this._renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this._controls = new OrbitControls(this._camera, this._renderer.domElement);
-        this._controls.enabled = true;
+        this._controls.enableRotate = false;
+        this._controls.enablePan = false;
+        this._controls.enableZoom = true;
         this._background = new Background();
         this._scene.add(this._background.scene());
         this._board = new Board("https://brianchoi.net/b15/dist/1.jpg");

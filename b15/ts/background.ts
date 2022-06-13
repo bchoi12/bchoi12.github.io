@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import { Sky } from 'three/examples/jsm/objects/Sky.js'
 
+import { Firework } from './firework.js'
 import { today } from './today.js'
 
 export class Background {
@@ -11,6 +12,7 @@ export class Background {
 	private _hemisphereLight : THREE.HemisphereLight
 	private _sunLight : THREE.DirectionalLight;
 	private _spotLights : Array<THREE.SpotLight>;
+	private _fireworks : Array<Firework>;
 
 	constructor() {
 		this._scene = new THREE.Scene();
@@ -53,6 +55,15 @@ export class Background {
 		}
 
 		this.updateSky();
+
+
+		this._fireworks = new Array();
+/*
+		const firework = new Firework();
+		firework.enable();
+		this._fireworks.push(firework);
+		this._scene.add(firework.mesh());
+*/
 	}
 
 	scene() : THREE.Scene {
@@ -61,6 +72,10 @@ export class Background {
 
 	update() : void {
 		this.updateSky();
+
+		this._fireworks.forEach((firework) => {
+			firework.update();
+		});
 	}
 
 	private updateSky() {
