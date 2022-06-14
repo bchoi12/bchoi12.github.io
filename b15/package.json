@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "smartcrop": "^2.0.5",
-    "three": "^0.141.0"
-  },
-  "devDependencies": {
-    "webpack-cli": "^4.9.2"
-  }
-}
