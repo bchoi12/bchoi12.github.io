@@ -34,15 +34,33 @@ html, body {
 #div-overlay .title {
 	font-size: 6em;
 	margin-bottom: 0.5em;
-	font-weight: bold;
-	-webkit-text-fill-color: #EEEEEE;
 	-webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #800080;
+
 }
 
 #div-overlay .instructions {
 	font-size: 2em;
-	text-align: left;
+	text-align: center;
 	padding-left: 20%;
 	padding-right: 20%;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-fill-color: #FFFFFF;
+    -webkit-text-stroke-color: #CCCCCC;
+}
+
+#div-overlay .sharon {
+	font-weight: bold;
+	-webkit-text-fill-color: #EEEEEE;
+    -webkit-text-stroke-color: #8b34c9;
+}
+
+#div-overlay .brian {
+	font-weight: bold;
+	-webkit-text-fill-color: #eeeeee;
+    -webkit-text-stroke-color: #c93434;
+}
+
+#div-overlay .spacer {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
