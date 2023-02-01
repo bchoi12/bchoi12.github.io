@@ -1,0 +1,146 @@
+html, body {
+	background-color: #fbfbfb;
+	color: #4b4b4b;
+	font-family: 'Lato';
+}
+
+.header {
+	text-align: center;
+}
+
+.header-text {
+	font-size: 3em;
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+	padding-bottom: 0.1em;
+
+	border-bottom: 1px solid #cbcbcb;
+}
+
+.content {
+	max-width: 1200px;
+	padding-top: 5em;
+	padding-bottom: 5em;
+	margin: 0 auto;
+
+	border-right: 1px solid #bfbfbf;
+	border-left: 1px solid #bfbfbf;
+}
+
+.showcase {
+	margin-top: 4em;
+	margin-bottom: 4em;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+.grid {
+	display: table;
+	width: 100%;
+}
+
+.column {
+	float: left;
+	width: 100%;
+}
+
+@media (min-width:601px) {
+	.column {
+		float: left;
+		width: 33.3%;
+	}
+}
+
+.project {
+	overflow: hidden;
+	position: relative;
+	margin: 0.5em;
+	margin-bottom: 1.5em;
+
+	min-height: 300px;
+	max-height: 750px;
+
+	border-radius: 0.5em;
+	box-shadow: 0 0 2px 1px #bbbbbb;
+}
+
+.project:hover .project-box {
+	opacity: 0.85;
+}
+
+.project:hover .project-box .project-text {
+	margin-bottom: 0;
+}
+
+.project:hover .project-img img {
+	transform: scale(1.2);
+}
+
+.project-img::before {
+	display: block;
+	width: 100%;
+	padding-bottom: 100%;
+	content: "";
+}
+
+.long::before {
+	padding-bottom: 130%;
+}
+
+.extra-long::before {
+	padding-bottom: 160%;
+}
+
+.project-img {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	transform: scale(1.02);
+}
+
+.project-img img {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+
+	transition: transform 0.8s ease;
+	object-fit: cover;
+}
+
+.project-box {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+
+	background-color: #1b1b1b;
+	opacity: 0;
+	transition: opacity .2s ease;
+}
+
+.project-box:hover {
+	// cursor: pointer;
+}
+
+.project-text {
+	opacity: 1;
+	color: #dbdbdb;
+
+	position: absolute;
+	margin-left: 1em;
+	margin-right: 1em;
+	bottom: 1em;
+	margin-bottom: -3em;
+
+	transition: margin-bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-title {
+	display: block;
+	font-size: 2em;
+	font-weight: bold;
+}
