@@ -5,7 +5,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    text-align: center;
     overflow: hidden;
 
     font-family: 'Lato';
@@ -133,7 +132,7 @@ body {
     margin-bottom: 0;
 }
 
-.key-binding {
+.key-bind {
     width: 100%;
     font-size: 1em;
     height: 1em;
@@ -240,7 +239,7 @@ body {
     margin: 6px 12px 6px 12px;
 }
 
-.slightly-opaque {
+.slightly-transparent {
     opacity: 0.7;
 }
 
