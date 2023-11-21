@@ -1,0 +1,926 @@
+div #main {
+	background: #000000;
+}
+
+div #container{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+div #form_container{
+	position: absolute;
+	background: #000000 url('title_back.jpg') no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
+div #overlay {
+	position: absolute;
+	background: #000000;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	visibility: visible;
+}
+
+div #center {
+	text-align: center;
+}
+
+div #center_height {
+	height: 25%;
+	text-align: center;
+}
+
+div #error {
+	width: 60%;
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#info {
+	position: absolute;
+	visibility: hidden;
+	top: -9999px;
+}
+
+#title {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#overlay_search {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#title_frame #summoner {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+	margin-bottom: -36px;
+}
+
+#title_frame #scroll_message {
+	font-size: 24px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#title_frame #behind_scroll_message {
+	opacity: 0;
+}
+
+#tier_frame #tier_name {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#tier_frame #tier_image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#tier_frame #tier_info {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 36px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#num_games_frame h1 {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 84px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-transform: uppercase;
+}
+
+#total_destruction_frame h1 {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 84px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-transform: uppercase;
+}
+
+#minion_spawn_time {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#minion_spawn_time #mst_2{
+	font-size: 54px;
+}
+
+#before_mp_champ_frame #before_mp_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#mp_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	margin-bottom: -36px;
+}
+
+#mp_champ_title {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#mp_champ_games {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 36px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#mp_champ_percentage{
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 36px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#total_kills {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#kills_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#doubles {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#doubles_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#triples {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#triples_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#quadras {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#quadras_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#pentas {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#pentas_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#before_most_kills_champ_frame #before_most_kills_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#most_kills_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	margin-bottom: -36px;
+}
+
+#most_kills_champ_title {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#most_kills {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#before_most_kills_per_game_champ_frame #before_most_kills_per_game_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#most_kills_per_game_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	margin-bottom: -36px;
+}
+
+#most_kills_per_game_champ_title {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#most_kills_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#before_most_assists_per_game_champ_frame #before_most_assists_per_game_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#most_assists_per_game_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	margin-bottom: -36px;
+}
+
+#most_assists_per_game_champ_title {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#most_assists_per_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#before_highest_winrate_champ_frame #before_highest_winrate_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#highest_winrate_champ {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	margin-bottom: -36px;
+}
+
+#highest_winrate_champ_title {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 24px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#highest_winrate {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+}
+
+#random_stats {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#longest_game {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#longest_game #lg_2{
+	font-size: 60px;
+}
+
+#longest_game_gold {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#longest_game_gold #lgg_2 {
+	font-size: 60px;
+}
+
+
+#longest_life {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#longest_life #ll_2{
+	font-size: 60px;
+}
+
+#longest_life_gold {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#longest_life_gold #llg_2 {
+	font-size: 60px;
+}
+
+
+#longest_spree {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#longest_spree #ls_2 {
+	font-size: 60px;
+}
+
+#total_damage {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 36px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#total_damage #td_3 {
+	font-size: 48px;
+}
+
+#total_gold {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 36px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#total_gold #tg_3 {
+	font-size: 48px;
+}
+
+#largest_crit {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#largest_crit #lc_2 {
+	font-size: 60px;
+}
+
+#credits {
+	text-align: center;
+	white-space: normal;
+}
+
+#credits h1 {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 96px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#credits h2 {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 72px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+#credits h3 {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 48px;
+	color: white;
+	text-shadow: 
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black,
+		0 0 4px black;
+	text-align: center;
+}
+
+.pin { position: absolute; width: 100%; height: 100%; overflow: hidden;}
