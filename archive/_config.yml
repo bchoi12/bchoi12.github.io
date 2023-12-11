@@ -1,25 +1,40 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
-
-# Permalinks
-permalink:        pretty
-
 # Setup
-title:            Brian Choi
-tagline:          The Blog
-url:              
-paginate:         3
-baseurl:          
+title: brianchoi.net
+tagline: Brian Choi's Website
+url: https://brianchoi.net/
+paginate: 1
+baseurl: "https://brianchoi.net/"
+permalink: pretty
+
+# Gems
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+
+# Optimize Jekyll
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+# Options
+
+# Replace this value and uncomment to enable Google Analytics tracking
+# ga_analytics: UA-000000-0
+
+# Specify the author for blog posts
 author:
-  name:           Brian Choi
-  url:            https://twitter.com/bchoi12
-  email:          brian@brianchoi.net
+  name: Brian Choi
+  url: https://brianchoi.net/
 
 # Custom vars
-version:          1.0.0
-github:
-  repo:           https://github.com/poole/poole
-pages_list:
-  Archives:	  '/archives'
-  Why:	  	  '/about'
+version: 3.0.0

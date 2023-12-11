@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="League of Legends Lookup"/>
+	<meta name="keywords" content="league of legends, lookup"/>
+
+	<title>LEAGUE OF LEGENDS S3 RANKED</title>
+
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="ranked.css">
+</head>
+
+<body>
+<div id="main">
+	<div id="overlay"></div>
+	<div id="container"><div id="info">
+			<span id="info_mp_champ_bg">http://i.imgur.com/WQK3eyy.jpg</span>
+			<span id="info_most_kills_champ_bg">http://i.imgur.com/p25HxGN.jpg</span>
+			<span id="info_most_kills_per_game_champ_bg">http://i.imgur.com/nLjdGMp.jpg</span>
+			<span id="info_most_assists_per_game_champ_bg">http://i.imgur.com/ZR0M0mz.jpg</span>
+			<span id="info_highest_winrate_champ_bg">http://i.imgur.com/1Qkmwj1.jpg</span>
+			</div><div id="title_frame" class="pin">
+			<h1 id="summoner">Phreak</h1>
+			<h4 id="scroll_message"><span id="behind_scroll_message">here we go! &darr;</span><span id="real_scroll_message">here we go! &darr;</span></h4>
+			</div><div id="tier_frame" class="pin">
+			<h2 id="tier_name">Kog'Maw's Horde</h2>
+			<img id="tier_image" src="tier/diamond_1.png" alt="DIAMOND I">
+			<h3 id="tier_info">DIAMOND I 11 LP</h3>
+			</div><div id="num_games_frame" class="pin">
+			<h1 id="num_games">717 games</h1>
+			<h1 id="num_wins">394 wins</h1>
+			<h1 id="num_losses">323 losses</h1>
+			</div><div id="total_destruction_frame" class="pin">
+			<h1 id="total_minions">130260 minions</h1>
+			<h1 id="total_monsters">20134 monsters</h1>
+			<h1 id="total_turrets">1152 turrets</h1>
+			</div><div id="total_kills_frame" class="pin">
+			<h2 id="total_kills">4601 total kills</h2>
+			<h3 id="kills_per_game">that's 6.4 kills per game</h3>
+			</div><div id="doubles_frame" class="pin">
+			<h2 id="doubles">543 double kills</h2>
+			<h3 id="doubles_per_game">occurs about once per game</h3>
+			</div><div id="triples_frame" class="pin">
+			<h2 id="triples">72 triple kills</h2>
+			<h3 id="triples_per_game">occurs about once per 10 games</h3>
+			</div><div id="quadras_frame" class="pin">
+			<h2 id="quadras">4 quadrakills</h2>
+			<h3 id="quadras_per_game">occurs about once per 179 games</h3>
+			</div><div id="pentas_frame" class="pin">
+			<h2 id="pentas">2 pentakills</h2>
+			<h3 id="pentas_per_game">occurs about once per 359 games</h3>
+			</div><div id="before_mp_champ_frame" class="pin">
+			<h2 id="before_mp_champ">Most played champion...</h2>
+			</div><div id="mp_champ_frame" class="pin">
+			<h2 id="mp_champ">Caitlyn</h2>
+			<h3 id="mp_champ_title">the Sheriff of Piltover</h3>
+			<h3 id="mp_champ_games">50 games</h3><h3 id="mp_champ_percentage">46.0% winrate</h3>
+			</div><div id="before_most_kills_champ_frame" class="pin">
+			<h2 id="before_most_kills_champ">Most kills in one game...</h2>
+			</div><div id="most_kills_champ_frame" class="pin">
+			<h2 id="most_kills_champ">Twitch</h2>
+			<h3 id="most_kills_champ_title">the Plague Rat</h3>
+			<h3 id="most_kills">21 kills</h3>
+			</div><div id="before_most_kills_per_game_champ_frame" class="pin">
+			<h2 id="before_most_kills_per_game_champ">Most kills per game...</h2>
+			</div><div id="most_kills_per_game_champ_frame" class="pin">
+			<h2 id="most_kills_per_game_champ">Draven</h2>
+			<h3 id="most_kills_per_game_champ_title">the Glorious Executioner</h3>
+			<h3 id="most_kills_per_game">10.0 kills per game over 18 games</h3>
+		</div><div id="before_most_assists_per_game_champ_frame" class="pin">
+			<h2 id="before_most_assists_per_game_champ">Most assists per game...</h2>
+			</div><div id="most_assists_per_game_champ_frame" class="pin">
+			<h2 id="most_assists_per_game_champ">Lulu</h2>
+			<h3 id="most_assists_per_game_champ_title">the Fae Sorceress</h3>
+			<h3 id="most_assists_per_game">18.8 assists per game over 6 games</h3>
+		</div><div id="before_highest_winrate_champ_frame" class="pin">
+			<h2 id="before_highest_winrate_champ">Highest winrate...</h2>
+			</div><div id="highest_winrate_champ_frame" class="pin">
+			<h2 id="highest_winrate_champ">Quinn</h2>
+			<h3 id="highest_winrate_champ_title">Demacia's Wings</h3>
+			<h3 id="highest_winrate">100.0% over 5 games</h3>
+		</div><div id="random_stats_frame" class="pin">
+			<h2 id="random_stats">Random stats...</h2>
+		</div><div id="minion_spawn_time_frame" class="pin">
+			<h1 id="minion_spawn_time"><span id="mst_1">You've spent</span><br><span id="mst_2">17 hours, 55 minutes and 30 seconds</span><br><span id="mst_3">waiting for minions to spawn!</span></h1>
+		</div><div id="longest_game_frame" class="pin">
+			<h2 id="longest_game"><span id="lg_1">Your longest game spanned</span><br><span id="lg_2">57 minutes and 55 seconds</span></h2>
+		</div><div id="longest_game_gold_frame" class="pin">
+			<h2 id="longest_game_gold"><span id="lgg_1">In that game, you gained</span><br><span id="lgg_2">6603g</span><br><span id="lgg_3">from passive gold gain alone!</span></h2>
+			</div><div id="longest_life_frame" class="pin">
+			<h2 id="longest_life"><span id="ll_1">Your longest life spanned</span><br><span id="ll_2">35 minutes and 35 seconds</span></h2>
+		</div><div id="longest_life_gold_frame" class="pin">
+			<h2 id="longest_life_gold"><span id="llg_1">In one life, you gained</span><br><span id="llg_2">4057g</span><br><span id="llg_3">from passive gold gain alone!</span></h2>
+			</div><div id="longest_spree_frame" class="pin">
+			<h2 id="longest_spree"><span id="ls_1">Your longest spree was 17 kills;</span><br><span id="ls_2">you were legendary 10 times over!!</span></h2>
+			</div><div id="total_damage_frame" class="pin">
+			<h2 id="total_damage"><span id="td_1">You've done 113111011 total damage;</span><br><span id="td_2">it would take a level one Ashe (without passive)</span><br><span id="td_3">6 weeks, 0 days, 23 hours, 16 minutes and 55 seconds</span><br><span id="td_4">to match your total damage!</span></h2>
+			</div><div id="total_gold_frame" class="pin">
+			<h2 id="total_gold"><span id="tg_1">You've earned and pillaged 8600446g;</span><br><span id="tg_2">it would take</span><br><span id="tg_3">7 weeks, 3 days, 9 hours, 22 minutes and 31 seconds</span><br><span id="tg_4">of passive gold gain to get that!</span></h2>
+			</div><div id="largest_crit_frame" class="pin">
+				<h2 id="largest_crit"><span id="lc_1">Your largest critical did 1872 damage;</span><br><span id="lc_2">that's 4 level one Sonas!</span></h2>
+				</div><div id="credits">
+			<div id="credits_title"><h1>Credits</h1></div>
+			<div id="credits_1"><h2>Created using data from the LoL API<br><br>Animations done using Superscrollorama by John Polacek</h2></div>
+			<div id="credits_2"><h3>Reverse Annie Background created by AlexisFire-eXe<br><br>Cute Volibear Background created by scriptkittie</h3></div>
+			<div id="credits_3"><h2>Site created by Brian Choi</h2></div>
+		</div>
+</div>
+	<div id="form_container">
+		<h3>hi :)</h3>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/greensock/TweenMax.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="js/jquery.lettering.js"></script>
+<script src="js/jquery.superscrollorama.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#overlay").fadeOut(2500);
+		initAnimations();
+	});
+
+	function getData(){
+		if (document.getElementById("summoner").value == ""){
+			return false;
+		}
+
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		} else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 1){
+				$("#title").html("Searching...");
+//				$("#overlay").fadeIn(10);
+//				setTimeout(function(){ }, 1800);
+			} else if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById("form_container").innerHTML = "<h3>hi :)</h3>";
+				initAnimations();
+			}
+		}
+
+		xmlhttp.open("POST", "ranked.php", true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send("summoner=" + document.getElementById("summoner").value + "&region=" + document.getElementById("region").value);
+	}
+
+	function initAnimations(){
+		var w = $(window).width();
+		var h = $(window).height();
+
+		if (document.getElementById("error") !== null){ // error finding summoner
+			$("#container").css('background', '#000000 url("title_back.jpg") no-repeat center').css('background-size', 'cover');
+			$("#error").css('margin-top', (0.15*h)+'px');
+			return;
+		}
+
+				$("#form_container").css('margin-top', '100%');
+				$("#form_container").css('background', '#000000');
+				$("#container").css('height', $(window).height()+'px');
+				$("#container").css('margin-bottom', '-200px');
+
+
+		// SET BACKGROUNDS
+		$("#container").css('background', '#000000 url("title_back.jpg") no-repeat center').css('background-size', 'cover');
+
+		$("#summoner").css('margin-top', (0.32*h) + 'px');
+		$("#summoner").lettering().find('span').css('position','relative').css('letter-spacing', '16px').hide();
+		$("#real_scroll_message").css('margin-left', ((-0.5) * $("#real_scroll_message").width()) + 'px').hide();
+		var sum_length = $("#summoner").text().length;
+		$("#tier_name").css('margin-top', (0.16*h) + 'px');
+		$("#tier_name").lettering().find('span').css('position', 'relative');
+		$("#minion_spawn_time").css('margin-top', (0.15*h)+'px');
+		$("#minion_spawn_time #mst_1").lettering().find('span').css('position', 'relative');
+		$("#minion_spawn_time #mst_2").lettering().find('span').css('position', 'relative');
+		$("#minion_spawn_time #mst_3").lettering().find('span').css('position', 'relative');
+		$("#mp_champ_frame").css('background', '#000000 url(' + $("#info_mp_champ_bg").text() + ') no-repeat center').css('background-size', 'contain');
+		$("#total_kills_frame").css('background', '#3A1F14 url("reverse_annie_alexis_rayne.jpg") no-repeat center').css('background-size', 'contain');
+		$("#most_kills_champ_frame").css('background', '#000000 url(' + $("#info_most_kills_champ_bg").text() + ') no-repeat center').css('background-size', 'contain');
+		$("#most_kills_per_game_champ_frame").css('background', '#000000 url(' + $("#info_most_kills_per_game_champ_bg").text() + ') no-repeat center').css('background-size', 'contain');
+		$("#most_assists_per_game_champ_frame").css('background', '#000000 url(' + $("#info_most_assists_per_game_champ_bg").text() + ') no-repeat center').css('background-size', 'contain');
+		$("#highest_winrate_champ_frame").css('background', '#000000 url(' + $("#info_highest_winrate_champ_bg").text() + ') no-repeat center').css('background-size', 'contain');
+		$("#random_stats_frame").css('background', '#454545 url("volibear_by_scriptkittie.jpg") no-repeat center').css('background-size', 'contain');
+
+		$("#credits_title").css('margin-top', (0.32*h)+'px');
+		$("#credits_1").css('margin-top', (0.3*h)+'px');
+		$("#credits_2").css('margin-top', (0.3*h)+'px');
+		$("#credits_3").css('margin-top', (0.3*h)+'px');
+		$("#credits_4").css('margin-top', (0.36*h)+'px');
+
+		// CHAMPION BACKGROUND
+		var bg_w;
+		var bg_h;
+		var bg_offset_x = 0;
+		var bg_offset_y = 0;
+		if (w / h > 1215 /717) { // width larger
+			bg_w = h/717 * 1215;
+			bg_offset_x = (w - bg_w)/2;
+			bg_h = h;
+		} else {
+			bg_h = w/1215 * 717;
+			bg_offset_y = (h - bg_h)/2;
+			bg_w = w;
+		}
+
+		// ANNIE BACKGROUND
+		var bg_w2;
+		var bg_h2;
+		var bg_offset_x2 = 0;
+		var bg_offset_y2 = 0;
+		if (w / h > 1920 / 1080) { // width larger
+			bg_w2 = h/1080 * 1920;
+			bg_offset_x2 = (w - bg_w2)/2;
+			bg_h2 = h;
+		} else {
+			bg_h2 = w/1920 * 1080;
+			bg_offset_y2 = (h - bg_h2)/2;
+			bg_w2 = w;
+		}
+
+		// VOLIBEAR BACKGROUND
+		var bg_w3;
+		var bg_h3;
+		var bg_offset_x3 = 0;
+		var bg_offset_y3 = 0;
+		if (w / h > 900 / 675) { // width larger
+			bg_w3 = h/675 * 900;
+			bg_offset_x3 = (w - bg_w3)/2;
+			bg_h3 = h;
+		} else {
+			bg_h3 = w/900 * 675;
+			bg_offset_y3 = (h - bg_h3)/2;
+			bg_w3 = w;
+		}
+
+		$("#longest_game").css('margin-top', (0.24*bg_h3 + bg_offset_y3)+'px');
+		$("#longest_game #lg_1").lettering().find('span').css('position', 'relative');
+		$("#longest_game #lg_2").lettering().find('span').css('position', 'relative');
+		$("#longest_game_gold").css('margin-top', (0.16*bg_h3 + bg_offset_y3)+'px');
+		$("#longest_life").css('margin-top', (0.24*bg_h3 + bg_offset_y3)+'px');
+		$("#longest_life #ll_1").lettering().find('span').css('position', 'relative');
+		$("#longest_life #ll_2").lettering().find('span').css('position', 'relative');
+		$("#longest_life_gold").css('margin-top', (0.16*bg_h3 + bg_offset_y3)+'px');
+		$("#longest_spree").css('margin-top', (0.24*bg_h3 + bg_offset_y3)+'px');
+		$("#longest_spree #ls_1").lettering().find('span').css('position', 'relative');
+		$("#longest_spree #ls_2").lettering().find('span').css('position', 'relative');
+		$("#total_damage").css('margin-top', (0.16*bg_h3 + bg_offset_y3)+'px');
+		$("#total_damage #td_1").lettering().find('span').css('position', 'relative');
+		$("#total_damage #td_2").lettering().find('span').css('position', 'relative');
+		$("#total_damage #td_3").lettering().find('span').css('position', 'relative');
+		$("#total_damage #td_4").lettering().find('span').css('position', 'relative');
+		$("#total_gold").css('margin-top', (0.16*bg_h3 + bg_offset_y3)+'px');
+		$("#total_gold #tg_1").lettering().find('span').css('position', 'relative');
+		$("#total_gold #tg_2").lettering().find('span').css('position', 'relative');
+		$("#total_gold #tg_3").lettering().find('span').css('position', 'relative');
+		$("#total_gold #tg_4").lettering().find('span').css('position', 'relative');
+		$("#largest_crit").css('margin-top', (0.24*bg_h3 + bg_offset_y3)+'px');
+
+		$("#overlay").fadeOut(3000);
+
+		var title_anim = [];
+		title_anim[0] = TweenMax.to($("#scroll_message"), 9,
+							{css:{marginLeft: '-150%'}, ease:Quad.easeInOut});
+		title_anim[1] = TweenMax.to($("#behind_scroll_message"), 6,
+							{css:{marginLeft:'-300%', opacity: 2}, ease:Quad.easeInOut});
+		for(var i=1; i<=sum_length; i++){
+			$("#summoner .char" + i).delay(3000 + i*200).fadeIn(500);
+			title_anim[i+1] = (TweenMax.to($("#summoner .char" + i), 12,
+				{css:{top:'-'+(300 + 100*(i%5)+300*(i/5))+'px'}}));
+		}
+		$("#real_scroll_message").delay(4000 + sum_length*200).fadeIn(2000);
+
+		var tier_anim = [];
+		tier_anim[0] = TweenMax.from($("#tier_image"), 8,
+						{css:{opacity: 0}});
+		for(var i=1; i<=$("#tier_name").text().length; i++){
+			if (i % 2 === 0){
+				if (Math.random() < .5){
+					tier_anim[i] = TweenMax.from($("#tier_name .char" + i), 6,
+						{css:{opacity: .2, top:(Math.random() * -1 * h/2) + 'px', left:(2*Math.random()*w-.5*w) + 'px'}, ease:Quad.easeInOut});
+				} else {
+					tier_anim[i] = TweenMax.from($("#tier_name .char" + i), 6,
+						{css:{opacity: .2, top:(Math.random() * h/2 + h) + 'px', left:(2*Math.random()*w-.5*w) + 'px'}, ease:Quad.easeInOut});
+				}
+			} else {
+				if (Math.random() < .5){
+					tier_anim[i] = TweenMax.from($("#tier_name .char" + i), 6,
+						{css:{opacity: .2, top:(2*Math.random()*h-.5*h) + 'px', left:(Math.random() * -1 * w/2) + 'px'}, ease:Quad.easeInOut});
+				} else {
+					tier_anim[i] = TweenMax.from($("#tier_name .char" + i), 6,
+						{css:{opacity: .2, top:(2*Math.random()*h-.5*h) + 'px', left:(Math.random() * w/2 + w) + 'px'}, ease:Quad.easeInOut});
+				}
+			}
+		}
+
+		var mst_1_anim = [];
+		var mst_anim_out = [];
+		for(var i=0; i < $("#minion_spawn_time #mst_1").text().length; i++){
+			mst_1_anim[i] = TweenMax.from($("#minion_spawn_time #mst_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut});
+			mst_anim_out.push(TweenMax.to($("#minion_spawn_time #mst_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var mst_2_anim = [];
+		for(var i=0; i < $("#minion_spawn_time #mst_2").text().length; i++){
+			mst_2_anim[i] = TweenMax.from($("#minion_spawn_time #mst_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut});
+			mst_anim_out.push(TweenMax.to($("#minion_spawn_time #mst_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var mst_3_anim = [];
+		for(var i=0; i < $("#minion_spawn_time #mst_3").text().length; i++){
+			mst_3_anim[i] = TweenMax.from($("#minion_spawn_time #mst_3 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut});
+			mst_anim_out.push(TweenMax.to($("#minion_spawn_time #mst_3 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut}));
+		}
+
+
+		var lg_anim_out = [];
+		for(var i=0; i < $("#longest_game #lg_1").text().length; i++){
+			lg_anim_out.push(TweenMax.to($("#longest_game #lg_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut}));
+		}
+		for(var i=0; i < $("#longest_game #lg_2").text().length; i++){
+			lg_anim_out.push(TweenMax.to($("#longest_game #lg_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (Math.random()*3*h - h)+'px', left: (Math.random()*3*w - w)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var ll_anim_out = [];
+
+		var ll_1_anim = [];
+		for(var i=0; i < $("#longest_life #ll_1").text().length; i++){
+			ll_1_anim[i] = TweenMax.from($("#longest_life #ll_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (0.2*h)+'px', left: (w/2-30*i)+'px', 'font-size': '2px'}, ease:Quad.easeInOut});
+			ll_anim_out.push(TweenMax.to($("#longest_life #ll_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (0.2*h)+'px', left: (w/2-30*i)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var ll_2_anim = [];
+		for(var i=0; i < $("#longest_life #ll_2").text().length; i++){
+			ll_2_anim[i] = TweenMax.from($("#longest_life #ll_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (0.4*h)+'px', left: (w/2-30*i)+'px', 'font-size': '2px'}, ease:Quad.easeInOut});
+			ll_anim_out.push(TweenMax.to($("#longest_life #ll_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, top: (0.4*h)+'px', left: (w/2-30*i)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var ls_anim_out = []
+
+		var ls_1_anim = [];
+		var ls_1_length = $("#longest_spree #ls_1").text().length
+		for(var i=0; i < ls_1_length; i++){
+			ls_1_anim[i] = TweenMax.from($("#longest_spree #ls_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, left: (-60*i-w/3)+'px'}, ease:Quad.easeInOut});
+			ls_anim_out.push(TweenMax.to($("#longest_spree #ls_1 .char" + (i+1)), 8,
+				{css:{opacity: 0, left: (w + (ls_1_length-i)*60)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var ls_2_anim = [];
+		var ls_2_length = $("#longest_spree #ls_2").text().length
+		for(var i=0; i < ls_2_length; i++){
+			ls_2_anim[i] = TweenMax.from($("#longest_spree #ls_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, left: (-60*i-w/3)+'px'}, ease:Quad.easeInOut});
+			ls_anim_out.push(TweenMax.to($("#longest_spree #ls_2 .char" + (i+1)), 8,
+				{css:{opacity: 0, left: (w/2 + (ls_1_length-i)*60)+'px'}, ease:Quad.easeInOut}));
+		}
+
+		var td_anim = [];
+		td_1_length = $("#total_damage #td_1").text().length
+		for(var i=0; i<td_1_length; i++){
+			td_anim.push(TweenMax.from($("#total_damage #td_1 .char" + (i+1)), 16*((i+1)/td_1_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		td_2_length = $("#total_damage #td_2").text().length
+		for(var i=0; i<td_2_length; i++){
+			td_anim.push(TweenMax.from($("#total_damage #td_2 .char" + (i+1)), 16*((i+1)/td_2_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		td_3_length = $("#total_damage #td_3").text().length
+		for(var i=0; i<td_3_length; i++){
+			td_anim.push(TweenMax.from($("#total_damage #td_3 .char" + (i+1)), 16*((i+1)/td_3_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		td_4_length = $("#total_damage #td_4").text().length
+		for(var i=0; i<td_4_length; i++){
+			td_anim.push(TweenMax.from($("#total_damage #td_4 .char" + (i+1)), 16*((i+1)/td_4_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		var tg_anim = [];
+		tg_1_length = $("#total_gold #tg_1").text().length
+		for(var i=0; i<tg_1_length; i++){
+			tg_anim.push(TweenMax.from($("#total_gold #tg_1 .char" + (i+1)), 16*((tg_1_length-i)/tg_1_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		tg_2_length = $("#total_gold #tg_2").text().length
+		for(var i=0; i<tg_2_length; i++){
+			tg_anim.push(TweenMax.from($("#total_gold #tg_2 .char" + (i+1)), 16*((tg_2_length-i)/tg_2_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		tg_3_length = $("#total_gold #tg_3").text().length
+		for(var i=0; i<tg_3_length; i++){
+			tg_anim.push(TweenMax.from($("#total_gold #tg_3 .char" + (i+1)), 16*((tg_3_length-i)/tg_3_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		tg_4_length = $("#total_gold #tg_4").text().length
+		for(var i=0; i<tg_4_length; i++){
+			tg_anim.push(TweenMax.from($("#total_gold #tg_4 .char" + (i+1)), 16*((tg_4_length-i)/tg_4_length),
+				{css:{opacity: 0, 'font-size': '8px'}}));
+		}
+
+		var lc_anim = TweenMax.from($("#largest_crit"), 12,
+			{css:{marginTop:'-100%', opacity:0}, ease:Bounce.easeOut});
+
+
+		var s = $.superscrollorama();
+
+
+		s.pin($("#container"), 92 * $(window).height(), {
+			anim: (new TimelineLite())
+				.append(title_anim)
+				.append(
+					TweenMax.fromTo($("#tier_frame"), 3,
+						{css:{opacity: 0}},
+						{css:{opacity: 1}}))
+				.append(tier_anim)
+				.append(
+					TweenMax.fromTo($("#tier_info"), 2,
+						{css:{marginLeft:'120%', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:'4%', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#tier_info"), 12,
+						{css:{marginLeft:'-4%'}}))
+				.append(
+					TweenMax.to($("#tier_info"), 2,
+						{css:{marginLeft:'-120%', opacity: 0}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.to($("#tier_name"), 3,
+						{css:{marginTop:'-100%', opacity: 0}, ease:Quad.easeInOut}),
+					TweenMax.to($("#tier_image"), 3,
+						{css:{opacity: 0}})])
+				.append([
+					TweenMax.to($("#tier_frame"), 3,
+						{css:{marginTop:'-100%'}}),
+					TweenMax.fromTo($("#num_games_frame"), 3,
+						{css:{marginTop:'-100%'}},
+						{css:{marginTop:'0%'}})])
+				.append(
+					TweenMax.fromTo($("#num_games"), 2,
+						{css:{marginLeft:'100%', marginTop: ((h-252)/4)+'px', marginBottom: '0px'}, ease:Quad.easeInOut},
+						{css:{marginLeft:'13%'}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.fromTo($("#num_wins"), 2,
+						{css:{marginLeft:'-100%', marginTop: ((h-252)/4)+'px', marginBottom: '0px'}, ease:Quad.easeInOut},
+						{css:{marginLeft:'48%'}, ease:Quad.easeInOut}),
+					TweenMax.to($("#num_games"), 2,
+						{css:{marginLeft:'12%'}})])
+				.append([
+					TweenMax.fromTo($("#num_losses"), 2,
+						{css:{marginLeft:'100%', marginTop: ((h-252)/4)+'px', marginBottom: '0px'}, ease:Quad.easeInOut},
+						{css:{marginLeft:'31%'}, ease:Quad.easeInOut}),
+					TweenMax.to($("#num_wins"), 2,
+						{css:{marginLeft:'49%'}}),
+					TweenMax.to($("#num_games"), 2,
+						{css:{marginLeft:'11%'}})])
+				.append([
+					TweenMax.to($("#num_games"), 12,
+						{css:{marginLeft: '7%'}}),
+					TweenMax.to($("#num_wins"), 12,
+						{css:{marginLeft: '53%'}}),
+					TweenMax.to($("#num_losses"), 12,
+						{css:{marginLeft: '27%'}})])
+				.append(
+					TweenMax.to($("#num_games"), 2,
+						{css:{marginLeft: '-100%'}}))
+				.append(
+					TweenMax.to($("#num_wins"), 2,
+						{css:{marginLeft: '100%'}}))
+				.append(
+					TweenMax.to($("#num_losses"), 2,
+						{css:{marginLeft: '-100%'}}))
+				.append([
+					TweenMax.to($("#num_games_frame"), 1,
+						{css:{marginLeft:'100%'}}),
+
+					TweenMax.fromTo($("#total_destruction_frame"), 1,
+						{css:{marginTop:'-100%'}},
+						{css:{marginTop:'0%'}})])
+				.append(
+					TweenMax.fromTo($("#total_minions"), 2,
+						{css:{marginLeft:'100%', marginTop: ((h-252)/4)+'px', marginBottom: '0px'}, ease:Quad.easeInOut},
+						{css:{marginLeft:'13%'}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.fromTo($("#total_monsters"), 2,
+						{css:{marginLeft:'-100%', marginTop: ((h-252)/4)+'px', marginBottom: '0px'}, ease:Quad.easeInOut},
+						{css:{marginLeft:'38%'}, ease:Quad.easeInOut}),
+					TweenMax.to($("#total_minions"), 2,
+						{css:{marginLeft:'12%'}})])
+				.append([
+					TweenMax.fromTo($("#total_turrets"), 2,
+						{css:{marginLeft:'100%', marginTop: ((h-252)/4)+'px', marginBottom: '0px'}, ease:Quad.easeInOut},
+						{css:{marginLeft:'26%'}, ease:Quad.easeInOut}),
+					TweenMax.to($("#total_monsters"), 2,
+						{css:{marginLeft:'39%'}}),
+					TweenMax.to($("#total_minions"), 2,
+						{css:{marginLeft:'11%'}})])
+				.append([
+					TweenMax.to($("#total_minions"), 12,
+						{css:{marginLeft: '7%'}}),
+					TweenMax.to($("#total_monsters"), 12,
+						{css:{marginLeft: '43%'}}),
+					TweenMax.to($("#total_turrets"), 12,
+						{css:{marginLeft: '22%'}})])
+				.append(
+					TweenMax.to($("#total_minions"), 2,
+						{css:{marginLeft: '-100%'}}))
+				.append(
+					TweenMax.to($("#total_monsters"), 2,
+						{css:{marginLeft: '100%'}}))
+				.append(
+					TweenMax.to($("#total_turrets"), 2,
+						{css:{marginLeft: '-100%'}}))
+				.append([
+					TweenMax.to($("#total_destruction_frame"), 6,
+						{css:{marginLeft:'100%'}}),
+
+					TweenMax.fromTo($("#total_kills_frame"), 6,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(
+					TweenMax.fromTo($("#total_kills"), 2,
+						{css:{marginLeft:'100%', marginTop: (bg_offset_y2 + 0.1 * bg_h2) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:'12%', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.fromTo($("#kills_per_game"), 2,
+						{css:{marginLeft: '-100%', opacity: 0, marginTop:((bg_h2)/3)+'px'}, ease:Quad.easeInOut},
+						{css:{marginLeft: '34%', opacity: 1}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.to($("#total_kills"), 12,
+						{css:{marginLeft:'8%'}}),
+					TweenMax.to($("#kills_per_game"), 12,
+						{css:{marginLeft:'38%'}})])
+				.append([
+					TweenMax.to($("#total_kills"), 2,
+						{css:{marginLeft:'-100%', opacity: 0}}),
+					TweenMax.to($("#kills_per_game"), 2,
+						{css:{marginLeft:'100%', opacity:0}})])
+				.append(
+					TweenMax.fromTo($("#doubles_frame"), 0.5,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}}))
+				.append(
+					TweenMax.fromTo($("#doubles"), 2,
+						{css:{marginLeft:'100%', marginTop: (bg_offset_y2 + 0.1 * bg_h2) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:'12%', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.fromTo($("#doubles_per_game"), 2,
+						{css:{marginLeft: '-100%', opacity: 0, marginTop:((bg_h2)/3)+'px'}, ease:Quad.easeInOut},
+						{css:{marginLeft: '34%', opacity: 1}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.to($("#doubles"), 12,
+						{css:{marginLeft:'8%'}}),
+					TweenMax.to($("#doubles_per_game"), 12,
+						{css:{marginLeft:'38%'}})])
+				.append([
+					TweenMax.to($("#doubles"), 2,
+						{css:{marginLeft:'-100%', opacity: 0}}),
+					TweenMax.to($("#doubles_per_game"), 2,
+						{css:{marginLeft:'100%', opacity:0}})])
+				.append(
+					TweenMax.to($("#doubles_frame"), 0.5,
+						{css:{marginLeft:'-100%'}}))
+				.append(
+					TweenMax.fromTo($("#triples_frame"), 0.5,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}}))
+				.append(
+					TweenMax.fromTo($("#triples"), 2,
+						{css:{marginLeft:'100%', marginTop: (bg_offset_y2 + 0.1 * bg_h2) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:'12%', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.fromTo($("#triples_per_game"), 2,
+						{css:{marginLeft: '-100%', opacity: 0, marginTop:(bg_h2/3)+'px'}, ease:Quad.easeInOut},
+						{css:{marginLeft: '34%', opacity: 1}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.to($("#triples"), 12,
+						{css:{marginLeft:'8%'}}),
+					TweenMax.to($("#triples_per_game"), 12,
+						{css:{marginLeft:'38%'}})])
+				.append([
+					TweenMax.to($("#triples"), 2,
+						{css:{marginLeft:'-100%', opacity: 0}}),
+					TweenMax.to($("#triples_per_game"), 2,
+						{css:{marginLeft:'100%', opacity:0}})])
+				.append(
+					TweenMax.to($("#triples_frame"), 0.5,
+						{css:{marginLeft:'-100%'}}))
+				.append(
+					TweenMax.fromTo($("#quadras_frame"), 0.5,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}}))
+				.append(
+					TweenMax.fromTo($("#quadras"), 2,
+						{css:{marginLeft:'100%', marginTop: (bg_offset_y2 + 0.1 * bg_h2) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:'12%', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.fromTo($("#quadras_per_game"), 2,
+						{css:{marginLeft: '-100%', opacity: 0, marginTop:(bg_h2/3)+'px'}, ease:Quad.easeInOut},
+						{css:{marginLeft: '34%', opacity: 1}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.to($("#quadras"), 12,
+						{css:{marginLeft:'8%'}}),
+					TweenMax.to($("#quadras_per_game"), 12,
+						{css:{marginLeft:'38%'}})])
+				.append([
+					TweenMax.to($("#quadras"), 2,
+						{css:{marginLeft:'-100%', opacity: 0}}),
+					TweenMax.to($("#quadras_per_game"), 2,
+						{css:{marginLeft:'100%', opacity:0}})])
+				.append(
+					TweenMax.to($("#quadras_frame"), 0.5,
+						{css:{marginLeft:'-100%'}}))
+				.append(
+					TweenMax.fromTo($("#pentas_frame"), 0.5,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}}))
+				.append(
+					TweenMax.fromTo($("#pentas"), 2,
+						{css:{marginLeft:'100%', marginTop: (bg_offset_y2 + 0.1 * bg_h2) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:'12%', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.fromTo($("#pentas_per_game"), 2,
+						{css:{marginLeft: '-100%', opacity: 0, marginTop:(bg_h2/3)+'px'}, ease:Quad.easeInOut},
+						{css:{marginLeft: '34%', opacity: 1}, ease:Quad.easeInOut}))
+				.append([
+					TweenMax.to($("#pentas"), 12,
+						{css:{marginLeft:'8%'}}),
+					TweenMax.to($("#pentas_per_game"), 12,
+						{css:{marginLeft:'38%'}})])
+				.append([
+					TweenMax.to($("#pentas"), 2,
+						{css:{marginLeft:'-100%', opacity: 0}}),
+					TweenMax.to($("#pentas_per_game"), 2,
+						{css:{marginLeft:'100%', opacity:0}})])
+				.append(
+					TweenMax.to($("#pentas_frame"), 0.5,
+						{css:{marginLeft:'-100%'}}))
+				.append([
+					TweenMax.to($("#total_kills_frame"), 3,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#before_mp_champ_frame"), 3,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(
+					TweenMax.fromTo($("#before_mp_champ"), 12,
+						{css:{marginLeft: '2%', marginTop: (0.5*h-48) + 'px'}},
+						{css:{marginLeft: '-1%'}}))
+				.append([
+					TweenMax.to($("#before_mp_champ"), 5,
+						{css:{marginLeft: '-2%'}}),
+					TweenMax.to($("#before_mp_champ_frame"), 6,
+						{css:{opacity: 0}}),
+					TweenMax.fromTo($("#mp_champ_frame"), 6,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#mp_champ"), 2,
+						{css:{marginTop: (0.16*bg_h+bg_offset_y)+'px', marginLeft:(w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#mp_champ"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}}))
+				.append([
+					TweenMax.to($("#mp_champ"), 2,
+						{css:{marginLeft:(0.075*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.fromTo($("#mp_champ_title"), 2,
+						{css:{marginLeft:(bg_w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut})])
+				.append([
+					TweenMax.to($("#mp_champ"), 8,
+						{css:{marginLeft:(0.055*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.to($("#mp_champ_title"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}})])
+				.append(
+					TweenMax.fromTo($("#mp_champ_games"), 2,
+						{css:{marginLeft:(w+100)+'px', marginTop: (bg_h/3) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(7/12*bg_w+bg_offset_x)+'px', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#mp_champ_games"), 12,
+						{css:{marginLeft:(bg_w/2+bg_offset_x)+'px'}}))
+				.append([
+					TweenMax.to($("#mp_champ_games"), 2,
+						{css:{marginLeft:((-1)*w)+'px', opacity: 0}}),
+					TweenMax.fromTo($("#mp_champ_percentage"), 2,
+						{css:{marginLeft:(w+100)+'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(bg_w/2+bg_offset_x)+'px', opacity: 1}, ease:Quad.easeInOut})])
+				.append(
+					TweenMax.to($("#mp_champ_percentage"), 12,
+						{css:{marginLeft:(5/12*bg_w+bg_offset_x)+'px'}}))
+				.append(
+					TweenMax.to($("#mp_champ_percentage"), 2,
+						{css:{marginLeft:((-1)*w)+'px', opacity: 0}}))
+				.append([
+					TweenMax.to($("#mp_champ_frame"), 6,
+						{css:{marginLeft: '100%'}}),
+					TweenMax.fromTo($("#before_most_kills_champ_frame"), 6,
+						{css:{marginLeft: '100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#before_most_kills_champ"), 12,
+						{css:{marginLeft: '2%', marginTop: (0.5*h-48) + 'px'}},
+						{css:{marginLeft: '-1%'}}))
+				.append([
+					TweenMax.to($("#before_most_kills_champ"), 5,
+						{css:{marginLeft: '-2%'}}),
+					TweenMax.to($("#before_most_kills_champ_frame"), 6,
+						{css:{opacity: 0}}),
+					TweenMax.fromTo($("#most_kills_champ_frame"), 6,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#most_kills_champ"), 2,
+						{css:{marginTop: (0.16*bg_h+bg_offset_y)+'px', marginLeft:(w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#most_kills_champ"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}}))
+				.append([
+					TweenMax.to($("#most_kills_champ"), 2,
+						{css:{marginLeft:(0.075*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.fromTo($("#most_kills_champ_title"), 2,
+						{css:{marginLeft:(bg_w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut})])
+				.append([
+					TweenMax.to($("#most_kills_champ"), 8,
+						{css:{marginLeft:(0.055*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.to($("#most_kills_champ_title"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}})])
+				.append(
+					TweenMax.fromTo($("#most_kills"), 2,
+						{css:{marginLeft:(w+100)+'px', marginTop: (bg_h/4) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(bg_w/2+bg_offset_x)+'px', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#most_kills"), 12,
+						{css:{marginLeft:(5/12*bg_w+bg_offset_x)+'px'}}))
+				.append(
+					TweenMax.to($("#most_kills"), 2,
+						{css:{marginLeft:((-1)*w)+'px', opacity: 0}}))
+
+				.append([
+					TweenMax.to($("#most_kills_champ_frame"), 6,
+						{css:{marginLeft: '-100%'}}),
+					TweenMax.fromTo($("#before_most_kills_per_game_champ_frame"), 6,
+						{css:{marginLeft: '-100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#before_most_kills_per_game_champ"), 12,
+						{css:{marginLeft: '-2%', marginTop: (0.5*h-48) + 'px'}},
+						{css:{marginLeft: '1%'}}))
+				.append([
+					TweenMax.to($("#before_most_kills_per_game_champ"), 5,
+						{css:{marginLeft: '2%'}}),
+					TweenMax.to($("#before_most_kills_per_game_champ_frame"), 6,
+						{css:{opacity: 0}}),
+					TweenMax.fromTo($("#most_kills_per_game_champ_frame"), 6,
+						{css:{marginLeft:'-100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#most_kills_per_game_champ"), 2,
+						{css:{marginTop: (0.16*bg_h+bg_offset_y)+'px', marginLeft:(w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#most_kills_per_game_champ"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}}))
+				.append([
+					TweenMax.to($("#most_kills_per_game_champ"), 2,
+						{css:{marginLeft:(0.075*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.fromTo($("#most_kills_per_game_champ_title"), 2,
+						{css:{marginLeft:(bg_w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut})])
+				.append([
+					TweenMax.to($("#most_kills_per_game_champ"), 8,
+						{css:{marginLeft:(0.055*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.to($("#most_kills_per_game_champ_title"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}})])
+				.append(
+					TweenMax.fromTo($("#most_kills_per_game"), 2,
+						{css:{marginLeft:(w+100)+'px', marginTop: (bg_h/4) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(bg_w/3+bg_offset_x)+'px', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#most_kills_per_game"), 12,
+						{css:{marginLeft:(bg_w/4+bg_offset_x)+'px'}}))
+				.append(
+					TweenMax.to($("#most_kills_per_game"), 2,
+						{css:{marginLeft:((-1)*w)+'px', opacity: 0}}))
+
+				.append([
+					TweenMax.to($("#most_kills_per_game_champ_frame"), 6,
+						{css:{marginLeft: '100%'}}),
+					TweenMax.fromTo($("#before_most_assists_per_game_champ_frame"), 6,
+						{css:{marginLeft: '100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#before_most_assists_per_game_champ"), 12,
+						{css:{marginLeft: '2%', marginTop: (0.5*h-48) + 'px'}},
+						{css:{marginLeft: '-1%'}}))
+				.append([
+					TweenMax.to($("#before_most_assists_per_game_champ"), 5,
+						{css:{marginLeft: '-2%'}}),
+					TweenMax.to($("#before_most_assists_per_game_champ_frame"), 6,
+						{css:{opacity: 0}}),
+					TweenMax.fromTo($("#most_assists_per_game_champ_frame"), 6,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#most_assists_per_game_champ"), 2,
+						{css:{marginTop: (0.16*bg_h+bg_offset_y)+'px', marginLeft:(w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#most_assists_per_game_champ"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}}))
+				.append([
+					TweenMax.to($("#most_assists_per_game_champ"), 2,
+						{css:{marginLeft:(0.075*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.fromTo($("#most_assists_per_game_champ_title"), 2,
+						{css:{marginLeft:(bg_w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut})])
+				.append([
+					TweenMax.to($("#most_assists_per_game_champ"), 8,
+						{css:{marginLeft:(0.055*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.to($("#most_assists_per_game_champ_title"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}})])
+				.append(
+					TweenMax.fromTo($("#most_assists_per_game"), 2,
+						{css:{marginLeft:(w+100)+'px', marginTop: (bg_h/4) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(bg_w/3+bg_offset_x)+'px', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#most_assists_per_game"), 12,
+						{css:{marginLeft:(bg_w/4+bg_offset_x)+'px'}}))
+				.append(
+					TweenMax.to($("#most_assists_per_game"), 2,
+						{css:{marginLeft:((-1)*w)+'px', opacity: 0}}))
+
+
+				.append([
+					TweenMax.to($("#most_assists_per_game_champ_frame"), 6,
+						{css:{marginLeft: '-100%'}}),
+					TweenMax.fromTo($("#before_highest_winrate_champ_frame"), 6,
+						{css:{marginLeft: '-100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#before_highest_winrate_champ"), 12,
+						{css:{marginLeft: '-2%', marginTop: (0.5*h-48) + 'px'}},
+						{css:{marginLeft: '1%'}}))
+				.append([
+					TweenMax.to($("#before_highest_winrate_champ"), 5,
+						{css:{marginLeft: '2%'}}),
+					TweenMax.to($("#before_highest_winrate_champ_frame"), 6,
+						{css:{opacity: 0}}),
+					TweenMax.fromTo($("#highest_winrate_champ_frame"), 6,
+						{css:{marginLeft:'-100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#highest_winrate_champ"), 2,
+						{css:{marginTop: (0.16*bg_h+bg_offset_y)+'px', marginLeft:(w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#highest_winrate_champ"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}}))
+				.append([
+					TweenMax.to($("#highest_winrate_champ"), 2,
+						{css:{marginLeft:(0.075*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.fromTo($("#highest_winrate_champ_title"), 2,
+						{css:{marginLeft:(bg_w+100)+'px', opacity:0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(0.1*bg_w+bg_offset_x)+'px', opacity:1}, ease:Quad.easeInOut})])
+				.append([
+					TweenMax.to($("#highest_winrate_champ"), 8,
+						{css:{marginLeft:(0.055*bg_w+bg_offset_x)+'px'}}),
+					TweenMax.to($("#highest_winrate_champ_title"), 8,
+						{css:{marginLeft:(0.08*bg_w+bg_offset_x)+'px'}})])
+				.append(
+					TweenMax.fromTo($("#highest_winrate"), 2,
+						{css:{marginLeft:(w+100)+'px', marginTop: (bg_h/4) + 'px', opacity: 0}, ease:Quad.easeInOut},
+						{css:{marginLeft:(bg_w/3+bg_offset_x)+'px', opacity: 1}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#highest_winrate"), 12,
+						{css:{marginLeft:(bg_w/4+bg_offset_x)+'px'}}))
+				.append(
+					TweenMax.to($("#highest_winrate"), 2,
+						{css:{marginLeft:((-1)*w)+'px', opacity: 0}}))
+				.append([
+					TweenMax.to($("#highest_winrate_champ_frame"), 6,
+						{css:{marginLeft: '-100%'}}),
+					TweenMax.fromTo($("#random_stats_frame"), 6,
+						{css:{marginLeft: '100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append(
+					TweenMax.fromTo($("#random_stats"), 8,
+						{css:{opacity: 0, marginTop: (0.4*h-48) + 'px'}},
+						{css:{opacity: 1}}))
+				.append([
+					TweenMax.to($("#random_stats"), 6,
+						{css:{opacity: 0}}),
+
+					TweenMax.fromTo($("#minion_spawn_time_frame"), 3,
+						{css:{marginLeft:'-100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(mst_1_anim).append(mst_2_anim).append(mst_3_anim)
+				.append(
+					TweenMax.to($("#minion_spawn_time_frame"), 12, {}))
+				.append(mst_anim_out)
+				.append([
+					TweenMax.to($("#minion_spawn_time_frame"), 3,
+						{css:{marginLeft:'-100%'}}),
+
+					TweenMax.fromTo($("#longest_game_frame"), 0.5,
+						{css:{opacity: 0}},
+						{css:{opacity: 1}})])
+				.append(
+					TweenMax.fromTo($("#longest_game #lg_1"), 8,
+						{css:{opacity: 0, 'letter-spacing': (w/12)+'px'}, ease:Quad.easeInOut},
+						{css:{opacity: 1, 'letter-spacing': '0px'}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.fromTo($("#longest_game #lg_2"), 8,
+						{css:{opacity: 0, 'letter-spacing': (w/12)+'px'}, ease:Quad.easeInOut},
+						{css:{opacity: 1, 'letter-spacing': '0px'}, ease:Quad.easeInOut}))
+				.append(
+					TweenMax.to($("#longest_game_frame"), 12, {}))
+				.append(lg_anim_out)
+				.append([
+					TweenMax.to($("#longest_game_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#longest_game_gold_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(
+					TweenMax.to($("#longest_game_gold_frame"), 12, {}))
+				.append([
+					TweenMax.to($("#longest_game_gold_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#longest_life_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(ll_1_anim).append(ll_2_anim)
+				.append(
+					TweenMax.to($("#longest_life_frame"), 12, {}))
+				.append(ll_anim_out)
+				.append([
+					TweenMax.to($("#longest_life_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#longest_life_gold_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(
+					TweenMax.to($("#longest_life_gold_frame"), 12, {}))
+				.append([
+					TweenMax.to($("#longest_life_gold_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#longest_spree_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(ls_1_anim).append(ls_2_anim)
+				.append(
+					TweenMax.to($("#longest_spree_frame"), 12, {}))
+				.append(ls_anim_out)
+				.append([
+					TweenMax.to($("#longest_spree_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#total_damage_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(td_anim)
+				.append(
+					TweenMax.to($("#total_damage_frame"), 12, {}))
+
+				.append([
+					TweenMax.to($("#total_damage_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#total_gold_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(tg_anim)
+				.append(
+					TweenMax.to($("#total_gold_frame"), 12, {}))
+
+				.append([
+					TweenMax.to($("#total_gold_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#largest_crit_frame"), 12,
+						{css:{marginLeft:'100%'}},
+						{css:{marginLeft:'0%'}})])
+				.append(lc_anim)
+				.append(
+					TweenMax.to($("#largest_crit_frame"), 12, {}))
+				.append([
+					TweenMax.to($("#largest_crit_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.to($("#random_stats_frame"), 12,
+						{css:{marginLeft:'-100%'}}),
+					TweenMax.fromTo($("#credits"), 12,
+						{css:{marginLeft: '100%'}},
+						{css:{marginLeft: '0%'}})])
+				.append([
+					TweenMax.to($("#credits #credits_title"), 16,
+						{css:{marginTop:'-100%'}}),
+					TweenMax.fromTo($("#credits #credits_1"), 16,
+						{css:{marginTop:'100%'}},
+						{css:{marginTop:'0%'}})])
+				.append([
+					TweenMax.to($("#credits #credits_1"), 16,
+						{css:{marginTop:'-100%'}}),
+					TweenMax.fromTo($("#credits #credits_2"), 16,
+						{css:{marginTop:'100%'}},
+						{css:{marginTop:'0%'}})])
+				.append([
+					TweenMax.to($("#credits #credits_2"), 16,
+						{css:{marginTop:'-100%'}}),
+					TweenMax.fromTo($("#credits #credits_3"), 16,
+						{css:{marginTop:'100%'}},
+						{css:{marginTop:'0%'}})])
+				.append([
+					TweenMax.to($("#credits #credits_3"), 16,
+						{css:{marginTop:'-100%'}}),
+					TweenMax.fromTo($("#credits #credits_4"), 16,
+						{css:{marginTop:'100%'}},
+						{css:{marginTop:'0%'}})]),
+
+			onPin: function() {
+				$("#container").css('height', '100%');
+			},
+			onUnpin: function() {
+				$("#container").css('height', h + 'px');
+				$("#form_container").css('display', 'none');
+			}
+		});
+	}
+</script>

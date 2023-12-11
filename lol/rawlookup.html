@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="description" content="League of Legends Lookup"/>
+	<meta name="keywords" content="league of legends, lookup"/>
+
+	<title>LEAGUE OF LEGENDS</title>
+
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+	<?php require "../common/navigation.html"; ?>
+<div id="main">
+	<h1>Lookup</h1>
+
+	<fieldset>
+	<legend>Lookup</legend>
+	<form id="lookup" onsubmit="getData(); return false;" method="post">
+	<input type="text" name="summoner" id="summoner" placeholder="Summoner Name" required>
+	<select name="region" id="region">
+		<option value="na">NA</option>
+		<option value="euw">EUW</option>
+		<option value="eune">EUNE</option>
+	</select>
+	<input type="submit" name="submit" id="submit" value="FIND ME"/>
+	</form>
+	</fieldset>
+	<div id="data"></div>
+</div>
+
+<?php require "../common/credits.html"; ?>
+
+<script>
+	$(document).ready(function(){
+		$("input#summoner").keypress(function(e){
+		  if(e.keyCode==13)
+		  	getData();
+		});
+	});
+	function getData(){
+		if (document.getElementById("summoner").value == ""){
+			document.getElementById("data").innerHTML = "Please enter summoner name";
+			return;
+		}
+
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		} else {
+	 		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 1){
+				document.getElementById("data").innerHTML = "Connection established! Please wait while we retrieve your data...";
+			} else if (xmlhttp.readyState == 3){
+				document.getElementById("data").innerHTML = "Almost done...";
+			} else if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				document.getElementById("data").innerHTML = xmlhttp.responseText;
+			} else {
+				document.getElementById("data").innerHTML = readyState;
+			}
+		}
+
+		xmlhttp.open("POST", "raw_lookup.php", true);
+		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlhttp.send("summoner=" + document.getElementById("summoner").value + "&region=" + document.getElementById("region").value);
+	}
+</script>
+
+</body>
+</html>
