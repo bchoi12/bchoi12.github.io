@@ -1,0 +1,145 @@
+html,
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family: 'Lato';
+    font-size: 3vh;
+    line-height: 1.3em;
+}
+
+#main {
+    width: 80vw;
+    height: 90vh;
+
+    /* top right bottom left */
+    padding: 5vh 10vw 5vh 10vw;
+}
+
+.button {
+    margin: 2em;
+    text-align: center;
+    padding: 1em;
+    border: 3px solid;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.button:hover {
+    text-shadow: 1px 1px 1px #FFFFFF;
+}
+
+#button-starbird {
+    display: none;
+}
+
+.puzzle {
+    height: 0;
+    overflow-x: hidden;
+    display: none;
+    transition: height 1s ease-in-out, opacity 1s ease-in-out;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.puzzle::-webkit-scrollbar {
+  display: none;
+}
+
+.puzzle-row {
+    margin: 1vw auto;
+    width: 100%;
+}
+
+.puzzle-box {
+    display: inline-block;
+    width: 18vw;
+    height: 13vw;
+    padding-top: 5vw;
+    border: 1px solid #FFFFFF;
+    border-radius: 0.2em;
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+    font-size: 3vw;
+}
+.puzzle-box-selected {
+    border: 1px solid #000;
+    background-color: rgba(0.9, 0.9, 0.9, 0.3);
+}
+.puzzle-box-solved.cat-1, #cat-1-name {
+    background-color: #5ccc74;
+}
+.puzzle-box-solved.cat-2, #cat-2-name {
+    background-color: #e6f25e;
+}
+.puzzle-box-solved.cat-3, #cat-3-name {
+    background-color: #5e7cf2;
+}
+.puzzle-box-solved.cat-4, #cat-4-name {
+    background-color: #c652f7;
+}
+.cat-name {
+    visibility: hidden;
+    padding: 0.3vw;
+}
+
+.puzzle-category {
+    font-size: 0.6em;
+    text-align: left;
+}
+
+.puzzle-clue {
+    margin: 1em;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.puzzle-title {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.puzzle-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-small {
+    font-size: 0.6em;
+    line-height: 0.6em;
+}
+
+.text-blue {
+    color: #31a0f5;
+    font-weight: bold;
+}
+
+.text-green {
+    color: #298a06;
+    font-weight: bold;
+}
+
+.text-purple {
+    color: #b56ed4;
+    font-weight: bold;
+}
+
+.text-red {
+    color: #f53131;
+    font-weight: bold;
+}
+
+.text-bog {
+    color: #cfb870;
+    font-weight: bold;
+}
