@@ -34,7 +34,7 @@ if (params.has("v")) {
 }
 let current = null;
 next();
-let geoButton = document.getElementById("button-geo");
+let geoButton = document.getElementById("button-welcome");
 geoButton.onclick = () => {
     geo(() => {
         next();
@@ -46,14 +46,17 @@ carButton.onclick = () => {
 };
 let selfieButton = document.getElementById("button-selfie");
 selfieButton.onclick = () => {
+    next();
+};
+let selfieGeo = document.getElementById("geo-selfie");
+selfieGeo.onclick = () => {
     geo((position) => {
         const lat = 37.427997;
         const lon = -122.069500;
         const dist = calcCrow(lat, lon, position.coords.latitude, position.coords.longitude);
-        let selfieClue = document.getElementById("clue-selfie");
-        selfieClue.textContent = Math.floor(dist) + "m away!";
+        selfieGeo.textContent = Math.floor(dist) + "m away!";
         if (dist <= 30 + position.coords.accuracy) {
-            next();
+            selfieButton.style.visibility = "visible";
         }
     });
 };
@@ -125,7 +128,7 @@ for (let i = 0; i < boxes.length; ++i) {
             }
         }
         if (numSolved >= 4) {
-            starbirdButton.style.display = "block";
+            starbirdButton.style.visibility = "visible";
         }
     };
 }
@@ -143,27 +146,33 @@ apartmentButton.onclick = () => {
 };
 let waffleButton = document.getElementById("button-waffle");
 waffleButton.onclick = () => {
+    next();
+};
+let geoWaffle = document.getElementById("geo-waffle");
+geoWaffle.onclick = () => {
     geo((position) => {
         const lat = 37.353981;
         const lon = -121.954642;
         const dist = calcCrow(lat, lon, position.coords.latitude, position.coords.longitude);
-        let waffleClue = document.getElementById("clue-waffle");
-        waffleClue.textContent = Math.floor(dist) + "m away!";
+        geoWaffle.textContent = Math.floor(dist) + "m away!";
         if (dist <= 30 + position.coords.accuracy) {
-            next();
+            waffleButton.style.visibility = "visible";
         }
     });
 };
 let rockosButton = document.getElementById("button-rockos");
 rockosButton.onclick = () => {
+    next();
+};
+let rockosGeo = document.getElementById("geo-rockos");
+rockosGeo.onclick = () => {
     geo((position) => {
         const lat = 37.34561728311603;
         const lon = -121.93748772707056;
         const dist = calcCrow(lat, lon, position.coords.latitude, position.coords.longitude);
-        let rockosClue = document.getElementById("clue-rockos");
-        rockosClue.textContent = Math.floor(dist) + "m away!";
+        rockosGeo.textContent = Math.floor(dist) + "m away!";
         if (dist <= 30 + position.coords.accuracy) {
-            next();
+            rockosButton.style.visibility = "visible";
         }
     });
 };
@@ -173,16 +182,35 @@ costcoButton.onclick = () => {
 };
 let baseButton = document.getElementById("button-base");
 baseButton.onclick = () => {
+    next();
+};
+let baseGeo = document.getElementById("geo-base");
+baseGeo.onclick = () => {
     geo((position) => {
         const lat = 37.415431853136795;
         const lon = -121.95672258207551;
         const dist = calcCrow(lat, lon, position.coords.latitude, position.coords.longitude);
-        let baseClue = document.getElementById("clue-base");
-        baseClue.textContent = Math.floor(dist) + "m away!";
+        baseGeo.textContent = Math.floor(dist) + "m away!";
         if (dist <= 100 + position.coords.accuracy) {
-            next();
+            baseButton.style.visibility = "visible";
         }
     });
+};
+let trueEndClue = document.getElementById("clue-true-end");
+let yesButton = document.getElementById("button-yes");
+let noButton = document.getElementById("button-no");
+yesButton.onclick = () => {
+    yesButton.style.display = "none";
+    noButton.style.display = "none";
+    trueEndClue.textContent = "WAHOO";
+    setInterval(() => {
+        trueEndClue.textContent += "O";
+    }, 333);
+};
+noButton.onclick = () => {
+    yesButton.style.display = "none";
+    noButton.style.display = "none";
+    trueEndClue.textContent = "sad bog...";
 };
 function next() {
     console.log("Loading...");

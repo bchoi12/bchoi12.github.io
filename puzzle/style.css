@@ -5,7 +5,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 
     font-family: 'Lato';
     font-size: 3vh;
@@ -20,8 +19,9 @@ body {
     padding: 5vh 10vw 5vh 10vw;
 }
 
-.button {
+.button, .geo-button {
     margin: 2em;
+    margin-bottom: 3em;
     text-align: center;
     padding: 1em;
     border: 3px solid;
@@ -29,12 +29,12 @@ body {
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover, .geo-button:hover {
     text-shadow: 1px 1px 1px #FFFFFF;
 }
 
-#button-starbird {
-    display: none;
+#button-selfie, #button-starbird, #button-waffle, #button-rockos, #button-base {
+    visibility: hidden;
 }
 
 .puzzle {
@@ -42,6 +42,7 @@ body {
     overflow-x: hidden;
     display: none;
     transition: height 1s ease-in-out, opacity 1s ease-in-out;
+    padding-bottom: 1em;
 
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -99,6 +100,7 @@ body {
     font-size: 1.5em;
     text-align: center;
     font-weight: bold;
+    overflow-wrap: break-word;
 }
 
 .puzzle-title {
