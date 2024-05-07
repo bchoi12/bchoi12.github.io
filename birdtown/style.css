@@ -337,7 +337,11 @@ body {
     margin: 6px 12px 6px 12px;
 }
 
-.slightly-transparent {
+.transparent-05 {
+    opacity: 0.5;
+}
+
+.transparent-07 {
     opacity: 0.7;
 }
 
@@ -345,15 +349,25 @@ body {
     font-weight: bold;
 }
 
-.button {
+.button, .button-select {
     padding: 0.1em;
     margin: 0.2em;
     display: inline-block;
 }
 
-.button:hover {
+.button:hover, .button-select:hover {
   text-shadow: 0px 0px 7px #BBBBBB;
   cursor: pointer;
+}
+
+.button-select {
+    transition: border-left ease-out 0.2s, padding-left ease-out 0.2s;
+    border-left: 0em solid;
+}
+
+.button-select:hover, .button-select.button-selected {
+    border-left: 0.2em solid;
+    padding-left: 0.2em;
 }
 
 .no-select {
