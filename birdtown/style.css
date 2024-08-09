@@ -74,7 +74,14 @@ body {
     letter-spacing: 0.05em;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
-
+#login-error {
+    display: none;
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 0.7em;
+    width: 60%;
+    margin: 0 auto 1em auto;
+}
 #form-login {
     padding: 5vw;
     text-align: center;
@@ -246,7 +253,7 @@ body {
 
 .tooltip {
     text-align: center;
-    width: 50%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0.5em;
