@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>birdtown 2</title>
+
+    <link rel="preload" href="./icons.woff2" as="font">
+    <link rel="preload" href="./style.css" as="style">
+
     <link href="./normalize.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:regular,italic,bold,bolditalic" />
 
     <meta property="og:image" content="https://brianchoi.net/birdtown/preview.png" />
     <meta property="og:description" content="Play now with friends for free, no login or install required." />
     <meta property="og:title" content="Birdtown" />
-
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:regular,italic,bold,bolditalic" />
-    <script src="https://kit.fontawesome.com/b400bccf87.js" crossorigin="anonymous"></script>
 </head>
 
 <body><div id="div-screen">
@@ -66,7 +68,7 @@
             <form id="form-login" action="about:blank" target="iframe-empty" onsubmit="return false;">
                 <div id="login-info"></div>
                 <div id="login-error"></div>
-                <input id="input-room" class="form-input" type="text" placeholder="Enter room code" maxlength="10" required>
+                <input id="input-room" class="form-input" type="text" pattern="[a-zA-Z0-9]+" placeholder="Enter room code" maxlength="10" required>
                 <div id="div-login-buttons">
                     <button id="button-host" type="submit"><span class="material-icons">home</span> Host</button>
                     <button id="button-join" type="submit"><span class="material-icons">login</span> Join</button>
