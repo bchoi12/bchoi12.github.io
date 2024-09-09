@@ -274,9 +274,10 @@ body {
 
 #div-counters {
     right: 0;
+    display: none;
 }
 
-#div-counters-container {
+#counters-container {
     position: relative;
     text-align: right;
 
@@ -332,17 +333,99 @@ body {
     margin: 0 auto;
 }
 
+#div-hud {
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+
+    bottom: 8%;
+    width: 44vw;
+    left: 28%;
+    height: 10vh;
+
+    font-weight: bold;
+    letter-spacing: 0.15em;
+
+    font-size: 1.2em;
+    text-shadow: 0px 0px 3px #111111;
+}
+
+#hud-left {
+    justify-content: right;
+}
+
+#hud-right {
+    justify-content: left;
+}
+
+#hud-left, #hud-right {
+    flex: 3;
+}
+
+#hud-center {
+    flex: 4;
+
+    justify-content: center;
+}
+
+#hud-center .hud-container {
+    margin: 0 0.5em;
+}
+
+.hud-section {
+    position: relative;
+    display: flex;
+    height: 100%;
+    align-items: end;
+}
+
+.hud-container {
+    position: relative;
+}
+
+.hud-block {
+    display: flex;
+    flex-wrap: nowrap;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.3em;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+
+    transition: background 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hud-block-charging {
+    background: rgba(0.3, 0.3, 0.3, 0.1);
+}
+
+.hud-text {
+    width: 100%;
+    text-align: right;
+}
+
+.hud-key {
+    position: absolute;
+    
+    font-size: 0.5em;
+    top: -0.5em;
+    left: -0.5em;
+
+    letter-spacing: 0;
+    font-weight: bold;
+}
+
 #div-tooltips {
     position: absolute;
     display: block;
     text-align: center;
     width: 60vw;
 
-    bottom: 8vh;
+    bottom: 20vh;
     left: 20vw;
 }
 
 .tooltip {
+    font-size: 0.8em;
     text-align: center;
     width: 40%;
     margin-left: auto;
@@ -350,12 +433,12 @@ body {
     margin-top: 0.5em;
 
     top: 20%;
-    padding: 1em;
-    border-radius: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
 
     white-space: pre-line;
 
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .popup {
@@ -373,12 +456,12 @@ body {
 }
 
 #div-status {
-    top: 30vh;
+    top: 30%;
     position: absolute;
     text-align: center;
 
-    left: 30vw;
-    width: 40vw;
+    left: 30%;
+    width: 40%;
 }
 
 .status-message {
@@ -396,7 +479,7 @@ body {
     text-align: center;
     width: 100%;
 
-    top: 15vh;
+    top: 15%;
     padding-top: 0.75em;
     padding-bottom: 0.75em;
 
@@ -662,6 +745,15 @@ body {
     position: absolute;
     bottom: 0;
     padding: 1em 0;
+}
+
+.progress {
+    background: #FFFFFF;
+    display: flex;
+    width: 100%;
+    height: 0.2em;
+    justify-content: center;
+    align-items: end;
 }
 
 .no-select {
