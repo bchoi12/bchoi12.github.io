@@ -1,5 +1,4 @@
- html,
-body {
+html, body {
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -22,8 +21,8 @@ kbd {
     border-radius: 0.2em;
     border: 0.1em solid #b4b4b4;
     box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.2),
-    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+        0 1px 1px rgba(0, 0, 0, 0.2),
+        0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
     color: #333;
     display: inline-block;
     font-size: 0.8em;
@@ -94,6 +93,8 @@ kbd {
 }
 
 #div-screen {
+    display: none;
+
     margin: 0;
     position: relative;
     width: 100%;
@@ -123,20 +124,32 @@ kbd {
     height: 100%;
 }
 
-#div-login {
+#div-login, #div-loading {
     position: absolute;
     align-items: center;
     justify-content: center;
 
-    width: 70vw;
+    left: 50%;
+    width: 40vw;
 
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 
-    left: 0;
-    right: 0;
     margin: 0 auto;
+}
+
+#div-loading {
+    text-align: center;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0.5em;
+}
+#div-loading div {
+    padding: 3em;
+}
+
+#div-login {
     font-size: 1.5em;
 }
 #fieldset-login {
@@ -145,27 +158,53 @@ kbd {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 0.5em;
     border: 1px solid #000;
+
+    padding: 1.5em 0;
+    text-align: center;
 }
 #legend-login {
+    font-size: 0.7em;
+    margin-right: 1em;
     text-align: right;
     font-weight: bold;
     letter-spacing: 0.05em;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 #login-error {
-    display: none;
     font-weight: bold;
     color: #ff0000;
-    font-size: 0.7em;
-    width: 60%;
-    margin: 0 auto 1em auto;
 }
-#form-login {
-    padding: 5vw;
-    text-align: center;
+#login-info, #login-error {
+    display: none;
+    font-size: 0.6em;
+    width: 60%;
+    margin: 1em auto;
 }
 
-#input-room, #div-login-buttons {
+#login-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.4em;
+    font-style: italic;
+    margin: 2em;
+}
+#login-separator:before, #login-separator:after {
+    background: #f2f2f2;
+    height: 2px;
+    flex: 1;
+    content: '';
+    margin: 2.5em;
+}
+
+#input-room {
+    font-size: 0.7em;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 0.2em;
+}
+
+#div-login-buttons {
     margin: 0 auto;
     display: none;
     border-radius: 0.2em;
@@ -173,8 +212,10 @@ kbd {
 
 #button-join, #button-host {
     background: #000;
-    margin: 3vw 2vw 0vw 2vw;
-    padding: 2vw 3vw;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    width: 50%;
+    padding: 1em 0;
     border-radius: 0.5em;
     border: 0;
     color: #f2f2f2;
@@ -579,11 +620,11 @@ kbd {
     display: block;
     position: absolute;
     width: 70%;
-    height: 70%;
-    top: 15%;
+    height: 80%;
     left: 15%;
+    top: 10%;
 
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: rgba(0.1, 0.1, 0.1, 0.9);
 }
 
@@ -712,8 +753,16 @@ kbd {
     opacity: 0.7;
 }
 
-.bold {
-    font-weight: bold;
+.bird-picker {
+    width: 100%;
+}
+
+.bird-photo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .button, .button-select {
