@@ -208,9 +208,7 @@ yesButton.onclick = () => {
     }, 333);
 };
 noButton.onclick = () => {
-    yesButton.style.display = "none";
     noButton.style.display = "none";
-    trueEndClue.textContent = "sad bog...";
 };
 function next() {
     console.log("Loading...");
