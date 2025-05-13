@@ -853,6 +853,10 @@ kbd {
     padding: 0.3em 0.6em;
 }
 
+.button-gray {
+    color: rgba(255, 255, 255, 0.3);
+}
+
 .button-inverted {
     color: #333;
     background-color: #f2f2f2;
@@ -1019,6 +1023,7 @@ kbd {
     white-space: nowrap;
     overflow-x: hidden;
     float: right;
+    font-size: 0.8em;
 }
 
 .label-input {
@@ -1076,6 +1081,10 @@ kbd {
     border: 1px solid;
     margin: 1em 0;
     margin-left: 10%;
+}
+
+.table {
+    width: 100%;
 }
 
 .table-row-select:hover {
