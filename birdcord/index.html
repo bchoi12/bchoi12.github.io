@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Birdtown</title>
+
+    <link href="./normalize.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+
+    <meta name="description" content="Welcome to Birdtown, a free online multiplayer game you can play right now in your browser--no download or registration required. Just send a link to your friends and start blasting them in a variety of game modes." />
+    <meta property="og:image" content="https://birdtown.net/logo.png" />
+    <meta property="og:description" content="Welcome to Birdtown, a free online multiplayer game you can play right now in your browser--no download or registration required. Just send a link to your friends and start blasting them in a variety of game modes" />
+    <meta property="og:title" content="Birdtown" />
+    <meta name="keywords" content="birdtown, free, multiplayer, online, game, web game, html5, physics, 3D">
+    <meta name="robots" content="index, follow">
+</head>
+
+<body>
+    <div id="div-screen">
+        <iframe name="iframe-empty" style="display:none"></iframe>
+        <div id="div-canvas"><canvas id="canvas-game">Game</canvas></div>
+        <div id="div-overlays" oncontextmenu="return false;">
+            <div id="div-vignette" class="no-select"></div>
+            <div id="div-stats" class="no-select"></div>
+            <div id="div-chat"></div>
+            <div id="div-message">
+                <form action="about:blank" target="iframe-empty" onsubmit="return false;">
+                    <input id="input-message" type="text" maxlength="48">
+                    <input id="button-message" type="submit" value="">
+                </form>
+            </div>
+            <div id="div-minimap" class="no-select">
+                <canvas id="canvas-physics">Physics</canvas>
+            </div>
+            <div id="div-feed" class="no-select"></div>
+            <div id="div-scoreboard" class="no-select"></div>
+            <div id="div-timer" class="no-select"></div>
+            <div id="div-hud" class="no-select">
+                <div id="hud-sections">
+                    <div id="hud-left" class="hud-section"></div>
+                    <div id="hud-center" class="hud-section"></div>
+                    <div id="hud-right" class="hud-section"></div>
+                </div>
+                <div id="hud-name" class="onscreen-message"></div>
+            </div>
+            <div id="div-tooltips" class="no-select"></div>
+            <div id="div-status" class="no-select"></div>
+            <div id="div-tray" class="no-select"></div>
+            <div id="div-announcement" class="no-select">
+                <div id="div-main-announcement" class="no-select"></div>
+                <div id="div-sub-announcement" class="no-select"></div>
+            </div>
+            <div id="div-game-info" class="no-select"></div>
+        </div>
+
+        <img id="aim" src="./img/aim.png" alt="aim" class="no-select" ondragstart="return false;" ondrop="return false;" />
+        <img id="cursor" src="./img/cursor.png" alt="cursor" class="no-select" ondragstart="return false;" ondrop="return false;" />
+
+        <div id="div-loading" class="no-select" oncontextmenu="return false;">
+            <div id="loading-top" class="loading-bar"></div>
+            <div id="loading-middle" class="loading-bar"></div>
+            <div id="loading-bottom" class="loading-bar"></div>
+        </div>
+    </div>
+
+    <div id="div-splash">
+        <div id="div-login">
+            <fieldset id="fieldset-login">
+                <legend id="login-legend">Birdtown</legend>
+                <div id="login-buttons" class="no-select">
+                    <button style="display: none;" id="button-host-quick" class="button login-button" type="submit"><span class="material-icons">home</span> Quick Start</button>
+                    <button id="button-host-custom" class="button login-button" type="submit"><span class="material-icons">home</span> Host Game</button>
+                    <button id="button-join" class="button login-button" type="submit"><span class="material-icons">login</span> Join Game</button>
+                    <button class="button login-button" onclick="window.open('https://discord.gg/U2TFpsaWMg', '_blank');"type="submit"><span class="material-icons">open_in_new</span> Discord</button>
+                    <button id="button-quit" class="button login-button" onclick="window.close();"><span class="material-icons">close</span> Quit</button>
+                    <div id="login-social">
+                        <div class="button"><a target="_blank" href="https://discord.gg/U2TFpsaWMg" class="social-link fa-brands fa-discord"></a></div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div id="div-modals">
+        <div id="div-dialogs"></div>
+        <div id="div-menu">
+            <div id="menu-fieldsets">
+                <fieldset id="fieldset-clients" class="spaced">
+                    <legend id="legend-clients">Console</legend>
+                </fieldset>
+                <fieldset id="fieldset-settings" class="spaced">
+                    <legend id="legend-settings">Settings</legend>
+                </fieldset>
+                <fieldset id="fieldset-key-bind" class="spaced">
+                    <legend id="legend-key-bind">Keys</legend>
+                </fieldset>
+            </div>
+            <div class="menu-button-container"><div id="menu-continue" class="menu-heading button">Continue</div></div>
+            <div class="menu-button-container"><div id="menu-quit" class="menu-heading button">Leave Game</div></div>
+        </div>
+    </div>
+
+    <div id="div-initializing"><div>Entering Birdtown...<br><span style="font-size: 0.7em" class="material-icons">location_city</span><br><span style="font-size: 0.7em">If this takes too long please double check Javascript is enabled.</div></div>
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/b400bccf87.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
